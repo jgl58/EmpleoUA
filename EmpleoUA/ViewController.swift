@@ -98,6 +98,12 @@ class ViewController: UIViewController{
             default:
                 print("Error al pulsar boton")
         }
+        
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let newViewController = storyBoard.instantiateViewController(withIdentifier: "ActividadDetalle") as! ActividadViewController
+
+        newViewController.title = self.categories[sender.tag].name
+        self.navigationController!.pushViewController(newViewController, animated: true)
     }
     
 }

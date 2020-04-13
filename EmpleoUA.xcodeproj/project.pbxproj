@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7D5A7E9F24446E4900AF552F /* ActividadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D5A7E9E24446E4900AF552F /* ActividadViewController.swift */; };
 		7D660106243F27AD00488228 /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D660105243F27AD00488228 /* APIRequest.swift */; };
 		7D660109243F79C900488228 /* Curso.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D660108243F79C900488228 /* Curso.swift */; };
 		7D66010B243F7A6100488228 /* TipoActividad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D66010A243F7A6100488228 /* TipoActividad.swift */; };
@@ -23,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7D5A7E9E24446E4900AF552F /* ActividadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActividadViewController.swift; sourceTree = "<group>"; };
 		7D660105243F27AD00488228 /* APIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
 		7D660108243F79C900488228 /* Curso.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Curso.swift; sourceTree = "<group>"; };
 		7D66010A243F7A6100488228 /* TipoActividad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipoActividad.swift; sourceTree = "<group>"; };
@@ -92,6 +94,7 @@
 				7DB61DD0242D638D00F1D293 /* Info.plist */,
 				7DB61DC8242D638A00F1D293 /* EmpleoUA.xcdatamodeld */,
 				7D660105243F27AD00488228 /* APIRequest.swift */,
+				7D5A7E9E24446E4900AF552F /* ActividadViewController.swift */,
 			);
 			path = EmpleoUA;
 			sourceTree = "<group>";
@@ -176,6 +179,7 @@
 				7D660106243F27AD00488228 /* APIRequest.swift in Sources */,
 				7D660109243F79C900488228 /* Curso.swift in Sources */,
 				7DB61DC2242D638A00F1D293 /* SceneDelegate.swift in Sources */,
+				7D5A7E9F24446E4900AF552F /* ActividadViewController.swift in Sources */,
 				7D66010B243F7A6100488228 /* TipoActividad.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
