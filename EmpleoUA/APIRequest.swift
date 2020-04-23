@@ -40,7 +40,7 @@ class APIRequest {
         
     }
     
-    static func getRequest(class: Any, url: String,callback: @escaping (Actividad?)->Void){
+    static func getActividad(class: Any, url: String,callback: @escaping (Actividad?)->Void){
         let session = URLSession.shared
         let url = URL(string: self.base_url+url)!
         let task = session.dataTask(with: url, completionHandler: { data, response, error in

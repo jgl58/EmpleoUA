@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7D428ED32448682C005C3E61 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D428ED22448682C005C3E61 /* MainViewController.swift */; };
 		7D5A7E9F24446E4900AF552F /* ActividadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D5A7E9E24446E4900AF552F /* ActividadViewController.swift */; };
 		7D660106243F27AD00488228 /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D660105243F27AD00488228 /* APIRequest.swift */; };
 		7D660109243F79C900488228 /* Curso.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D660108243F79C900488228 /* Curso.swift */; };
@@ -24,6 +25,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7D428ED22448682C005C3E61 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		7D5A7E9E24446E4900AF552F /* ActividadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActividadViewController.swift; sourceTree = "<group>"; };
 		7D660105243F27AD00488228 /* APIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
 		7D660108243F79C900488228 /* Curso.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Curso.swift; sourceTree = "<group>"; };
@@ -95,6 +97,7 @@
 				7DB61DC8242D638A00F1D293 /* EmpleoUA.xcdatamodeld */,
 				7D660105243F27AD00488228 /* APIRequest.swift */,
 				7D5A7E9E24446E4900AF552F /* ActividadViewController.swift */,
+				7D428ED22448682C005C3E61 /* MainViewController.swift */,
 			);
 			path = EmpleoUA;
 			sourceTree = "<group>";
@@ -173,6 +176,7 @@
 				7D66010F243F7B6B00488228 /* Matricula.swift in Sources */,
 				7D66010D243F7AD500488228 /* Tag.swift in Sources */,
 				7DB61DC4242D638A00F1D293 /* ViewController.swift in Sources */,
+				7D428ED32448682C005C3E61 /* MainViewController.swift in Sources */,
 				7DB61DCA242D638A00F1D293 /* EmpleoUA.xcdatamodeld in Sources */,
 				7DB61DC0242D638A00F1D293 /* AppDelegate.swift in Sources */,
 				7D660111243F7BED00488228 /* Actividad.swift in Sources */,
