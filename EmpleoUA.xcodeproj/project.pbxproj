@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7D1356672451A9C6002DD79E /* TagDetallesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1356662451A9C6002DD79E /* TagDetallesViewController.swift */; };
 		7D428ED32448682C005C3E61 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D428ED22448682C005C3E61 /* MainViewController.swift */; };
 		7D5A7E9F24446E4900AF552F /* ActividadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D5A7E9E24446E4900AF552F /* ActividadViewController.swift */; };
 		7D660106243F27AD00488228 /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D660105243F27AD00488228 /* APIRequest.swift */; };
@@ -25,6 +26,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7D1356662451A9C6002DD79E /* TagDetallesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagDetallesViewController.swift; sourceTree = "<group>"; };
 		7D428ED22448682C005C3E61 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		7D5A7E9E24446E4900AF552F /* ActividadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActividadViewController.swift; sourceTree = "<group>"; };
 		7D660105243F27AD00488228 /* APIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
@@ -96,6 +98,7 @@
 				7DB61DD0242D638D00F1D293 /* Info.plist */,
 				7DB61DC8242D638A00F1D293 /* EmpleoUA.xcdatamodeld */,
 				7D660105243F27AD00488228 /* APIRequest.swift */,
+				7D1356662451A9C6002DD79E /* TagDetallesViewController.swift */,
 				7D5A7E9E24446E4900AF552F /* ActividadViewController.swift */,
 				7D428ED22448682C005C3E61 /* MainViewController.swift */,
 			);
@@ -184,6 +187,7 @@
 				7D660109243F79C900488228 /* Curso.swift in Sources */,
 				7DB61DC2242D638A00F1D293 /* SceneDelegate.swift in Sources */,
 				7D5A7E9F24446E4900AF552F /* ActividadViewController.swift in Sources */,
+				7D1356672451A9C6002DD79E /* TagDetallesViewController.swift in Sources */,
 				7D66010B243F7A6100488228 /* TipoActividad.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

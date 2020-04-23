@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="xHW-Vo-wMY">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -12,21 +12,21 @@
             <objects>
                 <viewController id="E2x-5T-Txx" customClass="MainViewController" customModule="EmpleoUA" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Iyg-Jb-9Rg">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aZi-ss-gBE">
-                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <viewLayoutGuide key="contentLayoutGuide" id="ghR-06-xkR"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="fa7-1j-pF5"/>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="aZi-ss-gBE" firstAttribute="centerX" secondItem="Iyg-Jb-9Rg" secondAttribute="centerX" id="1oO-Xp-SYl"/>
-                            <constraint firstItem="aZi-ss-gBE" firstAttribute="leading" secondItem="ZYo-fN-m8x" secondAttribute="leading" id="Erz-pN-DCv"/>
-                            <constraint firstItem="aZi-ss-gBE" firstAttribute="top" secondItem="ZYo-fN-m8x" secondAttribute="top" id="Ppc-ZL-rUo"/>
-                            <constraint firstItem="aZi-ss-gBE" firstAttribute="bottom" secondItem="ZYo-fN-m8x" secondAttribute="bottom" id="cw9-hY-qE0"/>
+                            <constraint firstItem="aZi-ss-gBE" firstAttribute="top" secondItem="Iyg-Jb-9Rg" secondAttribute="topMargin" constant="-88" id="2y0-w3-J6d"/>
+                            <constraint firstItem="aZi-ss-gBE" firstAttribute="leading" secondItem="ZYo-fN-m8x" secondAttribute="leading" id="8xQ-tS-rtR"/>
+                            <constraint firstItem="aZi-ss-gBE" firstAttribute="centerX" secondItem="Iyg-Jb-9Rg" secondAttribute="centerX" id="sVu-CU-qy1"/>
+                            <constraint firstItem="aZi-ss-gBE" firstAttribute="centerY" secondItem="Iyg-Jb-9Rg" secondAttribute="centerY" id="xPl-Wp-GD0"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ZYo-fN-m8x"/>
                     </view>
@@ -37,14 +37,29 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fUj-h1-Xcc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1011.5942028985507" y="92.410714285714278"/>
+            <point key="canvasLocation" x="1008.8" y="91.304347826086968"/>
+        </scene>
+        <!--Tag Detalles View Controller-->
+        <scene sceneID="mMg-AQ-koU">
+            <objects>
+                <viewController storyboardIdentifier="TagDetalle" id="kn0-o2-9H8" customClass="TagDetallesViewController" customModule="EmpleoUA" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="rsk-ds-hUe">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="baC-Gi-q1p"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1Z0-cZ-gbz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1821" y="88"/>
         </scene>
         <!--Actividad View Controller-->
         <scene sceneID="khn-h2-bD9">
             <objects>
                 <viewController storyboardIdentifier="ActividadDetalle" id="CJQ-8q-Zuj" customClass="ActividadViewController" customModule="EmpleoUA" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="HLd-ci-kLb">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7MP-8D-bIq">
@@ -74,7 +89,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Khj-2F-eDi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1996" y="92"/>
+            <point key="canvasLocation" x="2636" y="92"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="XGp-oh-hez">
@@ -82,7 +97,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="xHW-Vo-wMY" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="LJ1-JP-Y8a">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
