@@ -14,30 +14,14 @@
                     <view key="view" contentMode="scaleToFill" id="Iyg-Jb-9Rg">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aZi-ss-gBE">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                                <viewLayoutGuide key="contentLayoutGuide" id="ghR-06-xkR"/>
-                                <viewLayoutGuide key="frameLayoutGuide" id="fa7-1j-pF5"/>
-                            </scrollView>
-                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <constraints>
-                            <constraint firstItem="aZi-ss-gBE" firstAttribute="top" secondItem="Iyg-Jb-9Rg" secondAttribute="topMargin" constant="-88" id="2y0-w3-J6d"/>
-                            <constraint firstItem="aZi-ss-gBE" firstAttribute="leading" secondItem="ZYo-fN-m8x" secondAttribute="leading" id="8xQ-tS-rtR"/>
-                            <constraint firstItem="aZi-ss-gBE" firstAttribute="centerX" secondItem="Iyg-Jb-9Rg" secondAttribute="centerX" id="sVu-CU-qy1"/>
-                            <constraint firstItem="aZi-ss-gBE" firstAttribute="centerY" secondItem="Iyg-Jb-9Rg" secondAttribute="centerY" id="xPl-Wp-GD0"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="ZYo-fN-m8x"/>
                     </view>
                     <navigationItem key="navigationItem" id="7Pa-Pw-Mc5"/>
-                    <connections>
-                        <outlet property="scrollView" destination="aZi-ss-gBE" id="nPx-ic-BNj"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fUj-h1-Xcc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1008.8" y="91.304347826086968"/>
+            <point key="canvasLocation" x="1008.3984374999999" y="90.922401171303065"/>
         </scene>
         <!--Tag Detalles View Controller-->
         <scene sceneID="mMg-AQ-koU">

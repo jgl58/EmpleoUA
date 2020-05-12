@@ -23,7 +23,12 @@ class TagDetallesViewController: UIViewController {
                         self.setupButtons()
                     }
                 }else{
-                    
+                    APIRequest.getActividad(class: Actividad.self, url: "/apiActividades/obtener/?sort="+String(self.tagID!)+"&order=asc"){ data in
+                        if let act = data {
+                            print(act)
+                        }
+                        
+                    }
                 }
             }
             

@@ -7,32 +7,73 @@
 //
 
 import UIKit
+import TinyConstraints
 
 class MainViewController: UIViewController {
 
- 
-    @IBOutlet weak var scrollView: UIScrollView!
+    lazy var contentViewSize = CGSize(width: self.view.frame.width, height: self.view.frame.height + 400)
+    
+//    @IBOutlet weak var scrollView: UIScrollView!
+    
+    lazy var scrollView: UIScrollView = {
+        let sview = UIScrollView(frame: .zero)
+        sview.backgroundColor = .gray
+        sview.frame = view.bounds
+        sview.contentSize = contentViewSize
+        return sview
+    }()
+    
+    lazy var containerView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .white
+        view.frame.size = contentViewSize
+        return view
+    }()
+    
+    lazy var label: UILabel = {
+        let label = UILabel()
+        label.text = "Hola"
+        return label
+    }()
     
     var colorOrder = [#colorLiteral(red: 0.0431372549, green: 0.3019607843, blue: 0.4196078431, alpha: 1),#colorLiteral(red: 0.1529411765, green: 0.462745098, blue: 0.462745098, alpha: 1),#colorLiteral(red: 0.5882352941, green: 0.2980392157, blue: 0.1411764706, alpha: 1),#colorLiteral(red: 0.2549019608, green: 0.2549019608, blue: 0.2549019608, alpha: 1),#colorLiteral(red: 0.6549019608, green: 0.2784313725, blue: 0.3803921569, alpha: 1)]
     var categories = [Tag]()
-    
+ 
     override func viewDidLoad() {
         super.viewDidLoad()
-        APIRequest.getTags(url: "/apiCategorias/tags"){ data in
-            
+       
+
+        view.addSubview(scrollView)
+        scrollView.addSubview(containerView)
+        
+        containerView.addSubview(label)
+        label.center(in: containerView)
+        
+         APIRequest.getTags(url: "/apiCategorias/tags"){ data in
+//        label.center(in: containerView)
             if let tags = data {
                self.categories = tags
                 OperationQueue.main.addOperation {
-                    
-                    self.setupScrollView()
                     self.setupButtons()
                 }
-                
+
             }
-            
+
         }
         
         
+        
+    }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+//        if UIDevice.current.orientation.isLandscape {
+//            print("Landscape")
+//            scrollView.contentSize = CGSize(width:self.view.frame.height, height: self.view.frame.width)
+//        } else {
+//            print("Portrait")
+//            scrollView.contentSize = CGSize(width:self.view.frame.width, height: self.view.frame.height)
+//        }
     }
 
     func setupScrollView(){
@@ -43,16 +84,16 @@ class MainViewController: UIViewController {
         
     }
     func setupButtons(){
-        let frame = self.view.frame
-        
-        let myX = frame.width/4
+        let myX = contentViewSize.width
         var myY : CGFloat = 0.0
         
-        let myHeight = frame.height/5
-        let myWidth = frame.width/2
-        let padding : CGFloat = 10.0
-        
+        let myHeight : CGFloat = contentViewSize.height / 6
+        let myWidth = contentViewSize.width
+
         var idColor = 0
+//        Creamos una variable VIEW para añadir dentro nuestro stack
+        let view = UIView()
+        var buttonsStack : [UIButton] = []
         for tag in self.categories {
             
             if tag.name != "Zona empresas" && tag.name != "Centro de Empleo"{
@@ -62,14 +103,19 @@ class MainViewController: UIViewController {
                 button.setTitle(tag.name, for: [])
                 button.titleLabel?.font = UIFont(name: "Quicksand", size: 20.0)
                 button.addTarget(self, action: #selector(pressed(_:)), for: .touchUpInside)
+                button.height(myHeight)
                 
-                self.scrollView.addSubview(button)
+                view.addSubview(button)
+                buttonsStack.append(button)
+//                hacemos que el boton se ancle a los lados de la view excepto bottom
+                button.edgesToSuperview(excluding: .bottom, usingSafeArea: true)
                 
                 idColor += 1
-                myY += myHeight + padding
             }
         }
-
+        containerView.stack(buttonsStack,axis: .vertical,width: contentViewSize.width,height: contentViewSize.height,spacing: 20)
+       
+    
     }
     
     @objc func pressed(_ sender: UIButton!) {
