@@ -11,6 +11,8 @@ import Foundation
 class APIRequest {
     
     static let base_url = "https://appempleo.ua.es"
+    static let activities_url = "/apiActividades/obtener"
+    static let activities_filter = "?sort=fechaInicio&order=asc&curso=2&tipoTag="
     
     static func getTags(url: String,callback: @escaping ([Tag]?)->Void){
         let session = URLSession.shared
@@ -19,7 +21,7 @@ class APIRequest {
             // Check if an error occured
             if error != nil {
                 // HERE you can manage the error
-                print(error)
+                print(error as Any)
                 callback(nil)
             }
             do {
@@ -40,12 +42,12 @@ class APIRequest {
                 // Check if an error occured
                 if error != nil {
                     // HERE you can manage the error
-                    print(error)
+                    print(error as Any)
                     callback(nil)
                 }
                 do {
                     let json = try JSONDecoder().decode(Tag.self, from: data!)
-    //                let json = try? JSONSerialization.jsonObject(with: data!, options: [])
+    //                let json = try? JSONSerialization.jsonObject(with: data!, options: [])   
                     callback(json)
                } catch {
                    print("Error during JSON serialization: \(error.localizedDescription)")
@@ -67,6 +69,29 @@ class APIRequest {
             }
             do {
                let json = try JSONDecoder().decode(Actividad.self, from: data!)
+                callback(json)
+           } catch {
+               print("Error during JSON serialization: \(error.localizedDescription)")
+           }
+            
+        })
+        task.resume()
+        
+    }
+//apiActividades/obtener?sort=fechaInicio&order=asc&curso=1&tipoTag=1
+    
+    static func getActividadesByTag(tag: Int,callback: @escaping ([Actividad]?)->Void){
+        let session = URLSession.shared
+        let url = URL(string: self.base_url+self.activities_url+self.activities_filter+String(tag))!
+        let task = session.dataTask(with: url, completionHandler: { data, response, error in
+            // Check if an error occured
+            if error != nil {
+                // HERE you can manage the error
+                print(error)
+                callback(nil)
+            }
+            do {
+               let json = try JSONDecoder().decode([Actividad].self, from: data!)
                 callback(json)
            } catch {
                print("Error during JSON serialization: \(error.localizedDescription)")

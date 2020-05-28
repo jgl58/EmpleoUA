@@ -20,9 +20,9 @@ class ActividadViewController: UIViewController {
             if let act = data {
                self.actividad = act
                 
-                print(self.actividad?.contenido.withoutHtml)
+                print(self.actividad?.contenido!.withoutHtml)
                 OperationQueue.main.addOperation {
-                                    self.descripcion.text = self.actividad!.contenido.withoutHtml
+                                    self.descripcion.text = self.actividad!.contenido!.withoutHtml
 
                 }
             }
