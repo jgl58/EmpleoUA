@@ -72,7 +72,7 @@ class TagDetallesViewController: UIViewController {
              button.backgroundColor = self.colorOrder[idColor]
              button.setTitle(activity.nombre, for: [])
              button.titleLabel?.font = UIFont(name: "Quicksand", size: 30.0)
-             //button.addTarget(self, action: #selector(pressed(_:)), for: .touchUpInside)
+             button.addTarget(self, action: #selector(pressed(_:)), for: .touchUpInside)
             button.height(self.scrollView.buttonHeight!)
              button.translatesAutoresizingMaskIntoConstraints = false
              view.addSubview(button)
@@ -125,7 +125,7 @@ class TagDetallesViewController: UIViewController {
         button.backgroundColor = #colorLiteral(red: 0.0431372549, green: 0.3019607843, blue: 0.4196078431, alpha: 1)
         button.setTitle("Prácticas", for: [])
         button.titleLabel?.font = UIFont(name: "Quicksand", size: 20.0)
-        button.addTarget(self, action: #selector(pressed(_:)), for: .touchUpInside)
+        button.addTarget(self, action: #selector(pressedPracticas), for: .touchUpInside)
         
         self.view.addSubview(button)
         
@@ -137,13 +137,13 @@ class TagDetallesViewController: UIViewController {
         buttonPortal.backgroundColor = #colorLiteral(red: 0.0431372549, green: 0.3019607843, blue: 0.4196078431, alpha: 1)
         buttonPortal.setTitle("Portal de empleo", for: [])
         buttonPortal.titleLabel?.font = UIFont(name: "Quicksand", size: 20.0)
-        buttonPortal.addTarget(self, action: #selector(pressed(_:)), for: .touchUpInside)
+        buttonPortal.addTarget(self, action: #selector(pressedPracticas), for: .touchUpInside)
         
         self.view.addSubview(buttonPortal)
             
     }
     
-    @objc func pressed(_ sender: UIButton!) {
+    @objc func pressedPracticas(_ sender: UIButton!) {
         
         if sender.tag == 1 {
             print("Hola")
@@ -154,6 +154,20 @@ class TagDetallesViewController: UIViewController {
             setWebView(url: url)
         }
         
+    }
+    
+    @objc func pressed(_ sender: UIButton!) {
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let newViewController = storyBoard.instantiateViewController(withIdentifier: "ActividadDetalle") as! ActividadViewController
+        
+        for activity in self.activities {
+            if sender.tag == activity.id {
+                newViewController.title = activity.nombre
+                newViewController.actividad = activity
+              navigationController!.pushViewController(newViewController, animated: true)
+            }
+        }
+
     }
 
 }

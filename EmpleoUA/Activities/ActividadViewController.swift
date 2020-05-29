@@ -10,25 +10,20 @@ import UIKit
 
 class ActividadViewController: UIViewController {
 
-    @IBOutlet weak var descripcion: UITextView!
     var actividad : Actividad?
+    
+    @IBOutlet weak var titulo: UILabel!
+    @IBOutlet weak var fecha: UILabel!
+    @IBOutlet weak var lugar: UILabel!
+    @IBOutlet weak var capacidad: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        APIRequest.getActividad(class: Actividad.self, url: "/apiActividades/obtener/1"){ data in
-            if let act = data {
-               self.actividad = act
-                
-                print(self.actividad?.contenido!.withoutHtml)
-                OperationQueue.main.addOperation {
-                                    self.descripcion.text = self.actividad!.contenido!.withoutHtml
-
-                }
-            }
-            
-        }
         
+        titulo.text = actividad?.nombre
+        fecha.text = actividad?.fechaFin
+        lugar.text = actividad?.lugar
+        capacidad.text = "\(actividad!.capacidad!)"
         // Do any additional setup after loading the view.
     }
     
@@ -45,21 +40,3 @@ class ActividadViewController: UIViewController {
 
 }
 
-extension String {
-    public var withoutHtml: String {
-        guard let data = self.data(using: .utf8) else {
-            return self
-        }
-
-        let options: [NSAttributedString.DocumentReadingOptionKey: Any] = [
-            .documentType: NSAttributedString.DocumentType.html,
-            .characterEncoding: String.Encoding.utf8.rawValue
-        ]
-
-        guard let attributedString = try? NSAttributedString(data: data, options: options, documentAttributes: nil) else {
-            return self
-        }
-
-        return attributedString.string
-    }
-}

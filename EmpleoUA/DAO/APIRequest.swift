@@ -12,7 +12,7 @@ class APIRequest {
     
     static let base_url = "https://appempleo.ua.es"
     static let activities_url = "/apiActividades/obtener"
-    static let activities_filter = "?sort=fechaInicio&order=asc&curso=2&tipoTag="
+    static let activities_filter = "?sort=fechaInicio&order=desc&curso=2&tipoTag="
     
     static func getTags(url: String,callback: @escaping ([Tag]?)->Void){
         let session = URLSession.shared
@@ -64,7 +64,7 @@ class APIRequest {
             // Check if an error occured
             if error != nil {
                 // HERE you can manage the error
-                print(error)
+                print(error as Any)
                 callback(nil)
             }
             do {
@@ -87,7 +87,7 @@ class APIRequest {
             // Check if an error occured
             if error != nil {
                 // HERE you can manage the error
-                print(error)
+                print(error as Any)
                 callback(nil)
             }
             do {
