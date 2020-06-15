@@ -31,7 +31,7 @@ class CustomScrollView: UIScrollView {
         let containerView = UIView()
         containerView.backgroundColor = .white
         containerView.frame.size = contentViewSize
-        
+         
         addSubview(containerView)
         
         self.containerView = containerView
@@ -42,7 +42,7 @@ class CustomScrollView: UIScrollView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func updateScrollViewSize(_ buttonsStack: [UIButton]){
+    func updateScrollViewSize(_ buttonsStack: [UIView]){
         
         contentViewSize.height = self.buttonHeight! * CGFloat(buttonsStack.count) + (self.spacing! * CGFloat(buttonsStack.count))
         

@@ -23,6 +23,7 @@
 		7DB61DCA242D638A00F1D293 /* EmpleoUA.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7DB61DC8242D638A00F1D293 /* EmpleoUA.xcdatamodeld */; };
 		7DB61DCC242D638D00F1D293 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7DB61DCB242D638D00F1D293 /* Assets.xcassets */; };
 		7DB61DCF242D638D00F1D293 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7DB61DCD242D638D00F1D293 /* LaunchScreen.storyboard */; };
+		7DBED403248562B100825FAA /* ActividadItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DBED402248562B100825FAA /* ActividadItem.swift */; };
 		E653A10DC7BD1F7CE398FC9B /* Pods_EmpleoUA.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 081C6CE28B12D1530202A5CA /* Pods_EmpleoUA.framework */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +48,7 @@
 		7DB61DCB242D638D00F1D293 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7DB61DCE242D638D00F1D293 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7DB61DD0242D638D00F1D293 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7DBED402248562B100825FAA /* ActividadItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActividadItem.swift; sourceTree = "<group>"; };
 		FF50E9DAF2100B2711C78F40 /* Pods-EmpleoUA.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EmpleoUA.debug.xcconfig"; path = "Target Support Files/Pods-EmpleoUA/Pods-EmpleoUA.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -74,6 +76,7 @@
 			isa = PBXGroup;
 			children = (
 				7D1356662451A9C6002DD79E /* TagDetallesViewController.swift */,
+				7DBED402248562B100825FAA /* ActividadItem.swift */,
 			);
 			path = Tags;
 			sourceTree = "<group>";
@@ -278,6 +281,7 @@
 			files = (
 				7D66010F243F7B6B00488228 /* Matricula.swift in Sources */,
 				7D66010D243F7AD500488228 /* Tag.swift in Sources */,
+				7DBED403248562B100825FAA /* ActividadItem.swift in Sources */,
 				7D428ED32448682C005C3E61 /* MainViewController.swift in Sources */,
 				7DB61DCA242D638A00F1D293 /* EmpleoUA.xcdatamodeld in Sources */,
 				7D0596C8247FDE87005219F7 /* CustomScrollView.swift in Sources */,

@@ -17,12 +17,13 @@ class TagDetallesViewController: UIViewController {
     
     var activities = [Actividad]()
     var colorOrder = [#colorLiteral(red: 0.0431372549, green: 0.3019607843, blue: 0.4196078431, alpha: 1),#colorLiteral(red: 0.1529411765, green: 0.462745098, blue: 0.462745098, alpha: 1),#colorLiteral(red: 0.5882352941, green: 0.2980392157, blue: 0.1411764706, alpha: 1),#colorLiteral(red: 0.2549019608, green: 0.2549019608, blue: 0.2549019608, alpha: 1),#colorLiteral(red: 0.6549019608, green: 0.2784313725, blue: 0.3803921569, alpha: 1)]
+    @IBOutlet weak var tableView: UITableView!
     
 
     //    @IBOutlet weak var scrollView: UIScrollView!
 
     lazy var scrollView: CustomScrollView = {
-        let sview = CustomScrollView(view: view,buttonHeight: 150.0)
+        let sview = CustomScrollView(view: view, buttonHeight: 400.0)
         return sview
     }()
 
@@ -30,24 +31,33 @@ class TagDetallesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.addSubview(scrollView)
         
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
+  
         APIRequest.getTag(url: "/apiCategorias/tags/"+String(tagID!)){ data in
             if let tag = data {
                 if tag.name == "Prácticas y empleo"{
                     OperationQueue.main.addOperation {
+                        self.tableView.isHidden = true
+
+                        self.view.addSubview(self.scrollView)
                         self.setupButtons()
+                        
                     }
                 }else{
+
                     APIRequest.getActividadesByTag(tag: 1){ data in
                         if let act = data {
                             print(String(tag.id) + " " + tag.name)
                             print("Nº de actividades: "+String(act.count))
                             OperationQueue.main.addOperation {
+                                self.tableView.isHidden = false
+                               
                                 self.activities = act
-                                self.view.addSubview(self.scrollView)
-                    
-                                self.setupActivites()
+                                self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Filtrar", style: .plain, target: self, action: #selector(self.menu))
+                                self.tableView.reloadData()
+                                //self.setupActivites()
                             }
                         }
                     }
@@ -57,34 +67,89 @@ class TagDetallesViewController: UIViewController {
 
         // Do any additional setup after loading the view.
     }
-    
+   /*
     func setupActivites(){
+        
          let idColor = 0
  //        Creamos una variable VIEW para añadir dentro nuestro stack
          let view = UIView()
-         var buttonsStack : [UIButton] = []
+         var buttonsStack : [UIView] = []
      
 
          for activity in activities {
-             
-             let button = UIButton()
-             button.tag = activity.id
-             button.backgroundColor = self.colorOrder[idColor]
-             button.setTitle(activity.nombre, for: [])
-             button.titleLabel?.font = UIFont(name: "Quicksand", size: 30.0)
-             button.addTarget(self, action: #selector(pressed(_:)), for: .touchUpInside)
-            button.height(self.scrollView.buttonHeight!)
-             button.translatesAutoresizingMaskIntoConstraints = false
-             view.addSubview(button)
-             buttonsStack.append(button)
-//                hacemos que el boton se ancle a los lados de la view excepto bottom
-             button.edgesToSuperview(excluding: .bottom, usingSafeArea: true)
+            
+            
+            let card = UIView()
+            card.backgroundColor = #colorLiteral(red: 0.8470588235, green: 0.8470588235, blue: 0.8470588235, alpha: 1)
+            card.height(self.scrollView.buttonHeight!)
+            
+            
+            let titulo = UILabel()
+        
+            titulo.textAlignment = .center
+            titulo.lineBreakMode = .byWordWrapping
+            titulo.numberOfLines = 0
+            titulo.height(self.scrollView.buttonHeight! / 8)
+            titulo.font = UIFont(name: "Lato", size: 30.0)
+            titulo.text = activity.nombre!
+            
+            
+            let fecha = UILabel()
+
+            fecha.textAlignment = .right
+            fecha.font = UIFont(name: "Lato", size: 8)
+            fecha.height(self.scrollView.buttonHeight! / 8)
+            fecha.text = ""
+            if let date = activity.fechaFin{
+                if let f = formatData(fecha: date){
+                   fecha.text = f
+                }else{
+                    fecha.text = "No hay fecha todavia"
+                }
+            }
+            
+            let image = UIImageView()
+            if let url = activity.urlFoto {
+                setImage(from: url, imageView: image)
+            }else{
+                setImage(from: "https://eps.ua.es/es/master-moviles/imagenes/profesores/otto_medi.png", imageView: image)
+                
+            }
+            image.height((self.scrollView.buttonHeight! * 3) / 4)
+
+      
+            card.addSubview(titulo)
+            card.addSubview(fecha)
+            card.addSubview(image)
+            
+
+            titulo.top(to: card)
+            fecha.topToBottom(of: titulo)
+            image.topToBottom(of: fecha)
+            
+            card.stack([titulo,fecha,image], axis: .vertical, spacing: 0)
+            
+            buttonsStack.append(card)
          }
         self.scrollView.updateScrollViewSize(buttonsStack)
      
      }
-      
+      */
     
+    func formatData(fecha: String) -> String?{
+        let dateFormatterGet = DateFormatter()
+        dateFormatterGet.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+
+        let dateFormatterPrint = DateFormatter()
+        dateFormatterPrint.dateFormat = "dd/MM/yyyy"
+
+        if let date = dateFormatterGet.date(from: fecha) {
+            return (dateFormatterPrint.string(from: date))
+        } else {
+           print("There was an error decoding the string")
+        }
+        return nil
+    }
     
     
     func setWebView(url: URL){
@@ -156,18 +221,69 @@ class TagDetallesViewController: UIViewController {
         
     }
     
-    @objc func pressed(_ sender: UIButton!) {
-        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let newViewController = storyBoard.instantiateViewController(withIdentifier: "ActividadDetalle") as! ActividadViewController
+    @objc func menu() {
         
-        for activity in self.activities {
-            if sender.tag == activity.id {
-                newViewController.title = activity.nombre
-                newViewController.actividad = activity
-              navigationController!.pushViewController(newViewController, animated: true)
-            }
-        }
 
     }
+    
+    
+    func setImage(from url: String,imageView: UIImageView) {
+        guard let imageURL = URL(string: url) else { return }
 
+            // just not to cause a deadlock in UI!
+        DispatchQueue.global().async {
+            guard let imageData = try? Data(contentsOf: imageURL) else { return }
+
+            let image = UIImage(data: imageData)
+            DispatchQueue.main.async {
+                imageView.image = image
+            }
+        }
+    }
+
+}
+
+extension TagDetallesViewController: UITableViewDelegate, UITableViewDataSource{
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        // #warning Incomplete implementation, return the number of sections
+        return 1
+    }
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        // #warning Incomplete implementation, return the number of rows
+        return activities.count
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! ActividadItem
+        let actividad = activities[indexPath.row]
+        cell.titulo.text = actividad.nombre
+        if let date = actividad.fechaFin{
+            if let f = formatData(fecha: date){
+                cell.fecha.text = f
+            }else{
+                cell.fecha.text = "No hay fecha todavia"
+            }
+        }
+        
+        if let url = actividad.urlFoto {
+            setImage(from: url, imageView: cell.imagen)
+        }
+        
+        // Configure the cell...
+
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+       let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+       let newViewController = storyBoard.instantiateViewController(withIdentifier: "ActividadDetalle") as! ActividadViewController
+       
+       newViewController.title = "Actividad"
+        newViewController.actividad = activities[indexPath.row]
+       navigationController!.pushViewController(newViewController, animated: true)
+    }
+    
+    
 }
