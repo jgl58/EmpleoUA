@@ -14,6 +14,7 @@ class ActividadItem: UITableViewCell {
     @IBOutlet weak var fecha: UILabel!
     
     @IBOutlet weak var imagen: UIImageView!
+    @IBOutlet weak var lugar: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

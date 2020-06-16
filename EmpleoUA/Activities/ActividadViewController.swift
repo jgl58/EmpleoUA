@@ -23,7 +23,7 @@ class ActividadViewController: UIViewController {
         
         titulo.text = actividad?.nombre
         
-        fecha.text = actividad!.fechaFin!
+        fecha.text = formatData(fecha: actividad!.fechaFin!)
         lugar.text = actividad?.lugar
         capacidad.text = "Capacidad: \(actividad!.capacidad!) personas"
         if let url =  actividad?.urlFoto{
@@ -46,6 +46,22 @@ class ActividadViewController: UIViewController {
             }
         }
     }
+    
+    func formatData(fecha: String) -> String?{
+          let dateFormatterGet = DateFormatter()
+          dateFormatterGet.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+
+          let dateFormatterPrint = DateFormatter()
+          dateFormatterPrint.dateFormat = "dd/MM/yyyy"
+
+          if let date = dateFormatterGet.date(from: fecha) {
+              return (dateFormatterPrint.string(from: date))
+          } else {
+             print("There was an error decoding the string")
+          }
+          return nil
+      }
+      
     
 
     /*

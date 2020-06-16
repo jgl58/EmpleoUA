@@ -270,6 +270,7 @@ extension TagDetallesViewController: UITableViewDelegate, UITableViewDataSource{
         if let url = actividad.urlFoto {
             setImage(from: url, imageView: cell.imagen)
         }
+        cell.lugar.text = actividad.lugar
         
         // Configure the cell...
 
