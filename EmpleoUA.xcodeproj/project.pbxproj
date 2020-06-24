@@ -24,6 +24,7 @@
 		7DB61DCC242D638D00F1D293 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7DB61DCB242D638D00F1D293 /* Assets.xcassets */; };
 		7DB61DCF242D638D00F1D293 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7DB61DCD242D638D00F1D293 /* LaunchScreen.storyboard */; };
 		7DBED403248562B100825FAA /* ActividadItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DBED402248562B100825FAA /* ActividadItem.swift */; };
+		7DCBD8DC24A27452006BA67B /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DCBD8DB24A27452006BA67B /* WebViewController.swift */; };
 		E653A10DC7BD1F7CE398FC9B /* Pods_EmpleoUA.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 081C6CE28B12D1530202A5CA /* Pods_EmpleoUA.framework */; };
 /* End PBXBuildFile section */
 
@@ -49,6 +50,7 @@
 		7DB61DCE242D638D00F1D293 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7DB61DD0242D638D00F1D293 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7DBED402248562B100825FAA /* ActividadItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActividadItem.swift; sourceTree = "<group>"; };
+		7DCBD8DB24A27452006BA67B /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		FF50E9DAF2100B2711C78F40 /* Pods-EmpleoUA.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EmpleoUA.debug.xcconfig"; path = "Target Support Files/Pods-EmpleoUA/Pods-EmpleoUA.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -85,6 +87,7 @@
 			isa = PBXGroup;
 			children = (
 				7D5A7E9E24446E4900AF552F /* ActividadViewController.swift */,
+				7DCBD8DB24A27452006BA67B /* WebViewController.swift */,
 			);
 			path = Activities;
 			sourceTree = "<group>";
@@ -292,6 +295,7 @@
 				7DB61DC2242D638A00F1D293 /* SceneDelegate.swift in Sources */,
 				7D5A7E9F24446E4900AF552F /* ActividadViewController.swift in Sources */,
 				7D1356672451A9C6002DD79E /* TagDetallesViewController.swift in Sources */,
+				7DCBD8DC24A27452006BA67B /* WebViewController.swift in Sources */,
 				7D66010B243F7A6100488228 /* TipoActividad.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

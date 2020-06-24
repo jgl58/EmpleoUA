@@ -47,6 +47,15 @@ class ActividadViewController: UIViewController {
         }
     }
     
+    @IBAction func showMore(_ sender: Any) {
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+       let newViewController = storyBoard.instantiateViewController(withIdentifier: "WebView") as! WebViewController
+       
+        newViewController.url = actividad?.urlAmigable
+        navigationController!.pushViewController(newViewController, animated: true)
+           
+    }
+    
     func formatData(fecha: String) -> String?{
           let dateFormatterGet = DateFormatter()
           dateFormatterGet.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
@@ -73,6 +82,8 @@ class ActividadViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+
 
 }
 
