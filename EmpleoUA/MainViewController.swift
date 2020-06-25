@@ -34,11 +34,7 @@ class MainViewController: UIViewController{
                         self.categories.append(t)
                     }
                 }
-               
-
                 OperationQueue.main.addOperation {
-//                    self.setupTags()
-
                     self.tableView.reloadData()
                 }
 

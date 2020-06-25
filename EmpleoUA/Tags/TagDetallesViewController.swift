@@ -67,75 +67,18 @@ class TagDetallesViewController: UIViewController {
 
         // Do any additional setup after loading the view.
     }
-   /*
-    func setupActivites(){
-        
-         let idColor = 0
- //        Creamos una variable VIEW para añadir dentro nuestro stack
-         let view = UIView()
-         var buttonsStack : [UIView] = []
-     
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "activitySegue" {
+            if let newViewController = segue.destination as? ActividadViewController {
 
-         for activity in activities {
-            
-            
-            let card = UIView()
-            card.backgroundColor = #colorLiteral(red: 0.8470588235, green: 0.8470588235, blue: 0.8470588235, alpha: 1)
-            card.height(self.scrollView.buttonHeight!)
-            
-            
-            let titulo = UILabel()
-        
-            titulo.textAlignment = .center
-            titulo.lineBreakMode = .byWordWrapping
-            titulo.numberOfLines = 0
-            titulo.height(self.scrollView.buttonHeight! / 8)
-            titulo.font = UIFont(name: "Lato", size: 30.0)
-            titulo.text = activity.nombre!
-            
-            
-            let fecha = UILabel()
-
-            fecha.textAlignment = .right
-            fecha.font = UIFont(name: "Lato", size: 8)
-            fecha.height(self.scrollView.buttonHeight! / 8)
-            fecha.text = ""
-            if let date = activity.fechaFin{
-                if let f = formatData(fecha: date){
-                   fecha.text = f
-                }else{
-                    fecha.text = "No hay fecha todavia"
-                }
-            }
-            
-            let image = UIImageView()
-            if let url = activity.urlFoto {
-                setImage(from: url, imageView: image)
-            }else{
-                setImage(from: "https://eps.ua.es/es/master-moviles/imagenes/profesores/otto_medi.png", imageView: image)
+                newViewController.title = "Actividad"
+                newViewController.actividad = activities[self.tableView.indexPathForSelectedRow!.row]
+                
                 
             }
-            image.height((self.scrollView.buttonHeight! * 3) / 4)
-
-      
-            card.addSubview(titulo)
-            card.addSubview(fecha)
-            card.addSubview(image)
-            
-
-            titulo.top(to: card)
-            fecha.topToBottom(of: titulo)
-            image.topToBottom(of: fecha)
-            
-            card.stack([titulo,fecha,image], axis: .vertical, spacing: 0)
-            
-            buttonsStack.append(card)
-         }
-        self.scrollView.updateScrollViewSize(buttonsStack)
-     
-     }
-      */
-    
+        }
+    }
     func formatData(fecha: String) -> String?{
         let dateFormatterGet = DateFormatter()
         dateFormatterGet.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
@@ -278,12 +221,7 @@ extension TagDetallesViewController: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-       let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-       let newViewController = storyBoard.instantiateViewController(withIdentifier: "ActividadDetalle") as! ActividadViewController
-       
-       newViewController.title = "Actividad"
-        newViewController.actividad = activities[indexPath.row]
-       navigationController!.pushViewController(newViewController, animated: true)
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
     
