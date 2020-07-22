@@ -87,7 +87,6 @@
 			isa = PBXGroup;
 			children = (
 				7D5A7E9E24446E4900AF552F /* ActividadViewController.swift */,
-				7DCBD8DB24A27452006BA67B /* WebViewController.swift */,
 			);
 			path = Activities;
 			sourceTree = "<group>";
@@ -112,6 +111,14 @@
 			path = Entities;
 			sourceTree = "<group>";
 		};
+		7DB2A4C224ADDAC2001F0495 /* WebView */ = {
+			isa = PBXGroup;
+			children = (
+				7DCBD8DB24A27452006BA67B /* WebViewController.swift */,
+			);
+			path = WebView;
+			sourceTree = "<group>";
+		};
 		7DB61DB3242D638A00F1D293 = {
 			isa = PBXGroup;
 			children = (
@@ -133,6 +140,7 @@
 		7DB61DBE242D638A00F1D293 /* EmpleoUA */ = {
 			isa = PBXGroup;
 			children = (
+				7DB2A4C224ADDAC2001F0495 /* WebView */,
 				7D0596CC247FF21E005219F7 /* DAO */,
 				7D0596CB247FF205005219F7 /* Activities */,
 				7D0596CA247FF1F4005219F7 /* Tags */,

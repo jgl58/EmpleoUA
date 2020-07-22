@@ -194,7 +194,7 @@
                                 <rect key="frame" x="159" y="521" width="56" height="30"/>
                                 <state key="normal" title="Ver más"/>
                                 <connections>
-                                    <action selector="showMore:" destination="CJQ-8q-Zuj" eventType="touchUpInside" id="eBJ-Gz-LFJ"/>
+                                    <action selector="goWebsite:" destination="CJQ-8q-Zuj" eventType="touchUpInside" id="dLN-XH-A8J"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CeS-3d-6Qq">
@@ -252,28 +252,10 @@
                     <view key="view" contentMode="scaleToFill" id="fbo-VJ-SNp">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cH0-Xm-Lh6">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <wkWebViewConfiguration key="configuration">
-                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
-                                    <wkPreferences key="preferences"/>
-                                </wkWebViewConfiguration>
-                            </wkWebView>
-                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <constraints>
-                            <constraint firstItem="cH0-Xm-Lh6" firstAttribute="top" secondItem="eDe-xE-bde" secondAttribute="top" id="55g-aC-3rz"/>
-                            <constraint firstItem="eDe-xE-bde" firstAttribute="trailing" secondItem="cH0-Xm-Lh6" secondAttribute="trailing" id="9tM-rC-Mw2"/>
-                            <constraint firstItem="eDe-xE-bde" firstAttribute="bottom" secondItem="cH0-Xm-Lh6" secondAttribute="bottom" id="Kel-lE-5vS"/>
-                            <constraint firstItem="cH0-Xm-Lh6" firstAttribute="leading" secondItem="eDe-xE-bde" secondAttribute="leading" id="W12-PS-Q31"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="eDe-xE-bde"/>
                     </view>
-                    <connections>
-                        <outlet property="webView" destination="cH0-Xm-Lh6" id="dp3-l7-5wT"/>
-                    </connections>
+                    <navigationItem key="navigationItem" id="lCg-cZ-5c7"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vu4-Cc-AjW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

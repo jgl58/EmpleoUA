@@ -23,9 +23,19 @@ class ActividadViewController: UIViewController {
         
         titulo.text = actividad?.nombre
         
-        fecha.text = formatData(fecha: actividad!.fechaFin!)
+        if let _ = actividad?.fechaFin {
+           fecha.text = formatData(fecha: actividad!.fechaFin!)
+        }else{
+            fecha.text = ""
+        }
+        
         lugar.text = actividad?.lugar
-        capacidad.text = "Capacidad: \(actividad!.capacidad!) personas"
+        if let _ = actividad?.capacidad {
+           capacidad.text = "Capacidad: \(actividad!.capacidad!) personas"
+        }else{
+            capacidad.text = ""
+        }
+        
         if let url =  actividad?.urlFoto{
          setImage(from: url, imageView: imagen)
         }
@@ -47,21 +57,22 @@ class ActividadViewController: UIViewController {
         }
     }
     
-    @IBAction func showMore(_ sender: Any) {
-        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-       let newViewController = storyBoard.instantiateViewController(withIdentifier: "WebView") as! WebViewController
-       
-        newViewController.url = actividad?.urlAmigable
-        navigationController!.pushViewController(newViewController, animated: true)
-           
+    @IBAction func goWebsite(_ sender: Any) {
+        
+       let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let newViewController = storyBoard.instantiateViewController(withIdentifier: "WebView") as! WebViewController
+        
+        newViewController.url = "https://appempleo.ua.es/actividad/ver/\(actividad?.urlAmigable ?? "")"
+         navigationController!.pushViewController(newViewController, animated: true)
     }
+   
     
     func formatData(fecha: String) -> String?{
           let dateFormatterGet = DateFormatter()
           dateFormatterGet.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
 
           let dateFormatterPrint = DateFormatter()
-          dateFormatterPrint.dateFormat = "dd/MM/yyyy"
+          dateFormatterPrint.dateFormat = "dd/MM/yyyy - HH:mm"
 
           if let date = dateFormatterGet.date(from: fecha) {
               return (dateFormatterPrint.string(from: date))

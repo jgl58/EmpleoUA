@@ -55,7 +55,7 @@ class TagDetallesViewController: UIViewController {
                                 self.tableView.isHidden = false
                                
                                 self.activities = act
-                                self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Filtrar", style: .plain, target: self, action: #selector(self.menu))
+//                                self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Filtrar", style: .plain, target: self, action: #selector(self.menu))
                                 self.tableView.reloadData()
                                 //self.setupActivites()
                             }
@@ -84,34 +84,16 @@ class TagDetallesViewController: UIViewController {
         dateFormatterGet.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
 
         let dateFormatterPrint = DateFormatter()
-        dateFormatterPrint.dateFormat = "dd/MM/yyyy"
+        dateFormatterPrint.dateFormat = "dd/MM/yyyy - HH:mm"
+        
 
         if let date = dateFormatterGet.date(from: fecha) {
-            return (dateFormatterPrint.string(from: date))
+            return dateFormatterPrint.string(from: date)
+
         } else {
            print("There was an error decoding the string")
         }
         return nil
-    }
-    
-    
-    func setWebView(url: URL){
-        
-        webView.translatesAutoresizingMaskIntoConstraints = false
-           self.view.addSubview(self.webView)
-        // You can set constant space for Left, Right, Top and Bottom Anchors
-            NSLayoutConstraint.activate([
-                self.webView.leftAnchor.constraint(equalTo: self.view.leftAnchor),
-                self.webView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
-                self.webView.rightAnchor.constraint(equalTo: self.view.rightAnchor),
-                self.webView.topAnchor.constraint(equalTo: self.view.topAnchor),
-                ])
-            // For constant height use the below constraint and set your height constant and remove either top or bottom constraint
-            //self.webView.heightAnchor.constraint(equalToConstant: 200.0),
-
-            self.view.setNeedsLayout()
-            let request = URLRequest(url: url)
-            self.webView.load(request)
     }
     
     
@@ -152,15 +134,20 @@ class TagDetallesViewController: UIViewController {
     }
     
     @objc func pressedPracticas(_ sender: UIButton!) {
-        
+        var url : String = ""
         if sender.tag == 1 {
-            print("Hola")
-            let url = URL(string: "https://web.ua.es/es/centro-empleo/practicas-y-empleo/practicas-en-la-ua/")!
-            setWebView(url: url)
+             url = "https://web.ua.es/es/centro-empleo/practicas-y-empleo/practicas-en-la-ua/"
+            
         }else if sender.tag == 2 {
-            let url = URL(string: "https://web.ua.es/es/centro-empleo/practicas-y-empleo/ofertas-de-empleo-para-titulados-de-la-ua/")!
-            setWebView(url: url)
+             url = "https://web.ua.es/es/centro-empleo/practicas-y-empleo/ofertas-de-empleo-para-titulados-de-la-ua/"
+            
         }
+        
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let newViewController = storyBoard.instantiateViewController(withIdentifier: "WebView") as! WebViewController
+        
+         newViewController.url = url
+         navigationController!.pushViewController(newViewController, animated: true)
         
     }
     
