@@ -66,6 +66,27 @@ class ActividadViewController: UIViewController {
          navigationController!.pushViewController(newViewController, animated: true)
     }
    
+    @IBAction func inscribirse(_ sender: Any) {
+        
+        let defaults = UserDefaults.standard
+        if let authToken = defaults.string(forKey: "Token"){
+            print(authToken)
+            let alert = UIAlertController(title: "Te has inscrito a la oferta", message: "", preferredStyle: .alert)
+
+            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+
+            self.present(alert, animated: true)
+        }else{
+            let alert = UIAlertController(title: "No has iniciado sesión", message: "Se necesita iniciar sesión para poder registrarte", preferredStyle: .alert)
+
+            alert.addAction(UIAlertAction(title: "Si", style: .default, handler: { action in
+                self.navigationController?.pushViewController(LoginController(), animated: true)
+            }))
+            alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
+
+            self.present(alert, animated: true)
+        }
+    }
     
     func formatData(fecha: String) -> String?{
           let dateFormatterGet = DateFormatter()

@@ -212,17 +212,28 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UJF-6k-fCw">
+                                <rect key="frame" x="152" y="578" width="71" height="30"/>
+                                <state key="normal" title="Inscribirse"/>
+                                <connections>
+                                    <action selector="inscribirse:" destination="CJQ-8q-Zuj" eventType="touchUpInside" id="wj2-Ln-qIz"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="Qw7-40-veX" firstAttribute="bottom" secondItem="NQr-mp-Wgs" secondAttribute="bottom" constant="116" id="2ex-1l-T0G"/>
                             <constraint firstItem="4hp-sI-rki" firstAttribute="leading" secondItem="Qw7-40-veX" secondAttribute="leading" constant="16" id="2jX-Lp-Vrr"/>
                             <constraint firstItem="NQr-mp-Wgs" firstAttribute="centerX" secondItem="Qw7-40-veX" secondAttribute="centerX" id="3Cd-ru-EUk"/>
+                            <constraint firstItem="UJF-6k-fCw" firstAttribute="top" secondItem="NQr-mp-Wgs" secondAttribute="bottom" constant="27" id="GFW-N8-yVC"/>
+                            <constraint firstItem="Qw7-40-veX" firstAttribute="trailing" secondItem="UJF-6k-fCw" secondAttribute="trailing" constant="152" id="GPK-m1-9Gb"/>
                             <constraint firstItem="sm9-pI-wnG" firstAttribute="leading" secondItem="Qw7-40-veX" secondAttribute="leading" constant="16" id="IAh-RS-qpb"/>
+                            <constraint firstItem="Qw7-40-veX" firstAttribute="bottom" secondItem="UJF-6k-fCw" secondAttribute="bottom" constant="59" id="LYZ-rp-kFv"/>
                             <constraint firstItem="bQg-Kh-m1w" firstAttribute="top" secondItem="Qw7-40-veX" secondAttribute="top" constant="134" id="Rl0-md-AR5"/>
                             <constraint firstItem="Qw7-40-veX" firstAttribute="bottom" secondItem="CeS-3d-6Qq" secondAttribute="bottom" constant="196" id="VuN-Zt-gOC"/>
                             <constraint firstItem="Qw7-40-veX" firstAttribute="trailing" secondItem="bQg-Kh-m1w" secondAttribute="trailing" constant="16" id="ZtG-65-5eI"/>
                             <constraint firstItem="i1y-nl-93o" firstAttribute="top" secondItem="Qw7-40-veX" secondAttribute="top" constant="20" id="dJx-ks-Nk6"/>
+                            <constraint firstItem="UJF-6k-fCw" firstAttribute="leading" secondItem="Qw7-40-veX" secondAttribute="leading" constant="152" id="j6l-6r-Zju"/>
                             <constraint firstItem="Qw7-40-veX" firstAttribute="trailing" secondItem="i1y-nl-93o" secondAttribute="trailing" constant="16" id="kLN-v8-kl6"/>
                             <constraint firstItem="sm9-pI-wnG" firstAttribute="top" secondItem="bQg-Kh-m1w" secondAttribute="bottom" constant="33" id="l4n-eN-ADt"/>
                             <constraint firstItem="CeS-3d-6Qq" firstAttribute="leading" secondItem="Qw7-40-veX" secondAttribute="leading" constant="16" id="lYy-QZ-sdg"/>
