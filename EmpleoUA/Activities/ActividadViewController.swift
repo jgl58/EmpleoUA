@@ -78,7 +78,7 @@ class ActividadViewController: UIViewController {
             self.present(alert, animated: true)
         }else{
             let alert = UIAlertController(title: "No has iniciado sesión", message: "Se necesita iniciar sesión para poder registrarte", preferredStyle: .alert)
-
+            
             alert.addAction(UIAlertAction(title: "Si", style: .default, handler: { action in
                 self.navigationController?.pushViewController(LoginController(), animated: true)
             }))
