@@ -39,7 +39,6 @@ class LoginController: UIViewController, WKScriptMessageHandler {
             if let secretToken = dict["secretToken"] as? String {
                 print(secretToken)
                 saveToken(token: secretToken)
-                _ = navigationController?.popViewController(animated: true)
 
             }
         }
@@ -48,10 +47,11 @@ class LoginController: UIViewController, WKScriptMessageHandler {
         func saveToken(token: String){
             let defaults = UserDefaults.standard
             defaults.set(token, forKey: "Token")
-    //            let savedArray = defaults.object(forKey: "SavedArray") as? [String] ?? [String]() Leer token de UserDefaults
 
+            _ = navigationController?.popViewController(animated: true)
+    //            let savedArray = defaults.object(forKey: "SavedArray") as? [String] ?? [String]() Leer token de 
         }
-        
+
         
 
 }
