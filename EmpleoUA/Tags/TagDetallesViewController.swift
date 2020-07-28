@@ -43,8 +43,11 @@ class TagDetallesViewController: UIViewController {
 
                         self.view.addSubview(self.scrollView)
                         self.setupButtons()
-                        
                     }
+                }else if tag.id == 5 {
+//                    hacer algo con la orientación
+
+
                 }else{
 
                     APIRequest.getActividadesByTag(tag: 1){ data in
@@ -79,6 +82,7 @@ class TagDetallesViewController: UIViewController {
             }
         }
     }
+    
     func formatData(fecha: String) -> String?{
         let dateFormatterGet = DateFormatter()
         dateFormatterGet.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
