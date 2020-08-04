@@ -159,22 +159,7 @@ class TagDetallesViewController: UIViewController {
         
 
     }
-    
-    
-    func setImage(from url: String,imageView: UIImageView) {
-        guard let imageURL = URL(string: url) else { return }
-
-            // just not to cause a deadlock in UI!
-        DispatchQueue.global().async {
-            guard let imageData = try? Data(contentsOf: imageURL) else { return }
-
-            let image = UIImage(data: imageData)
-            DispatchQueue.main.async {
-                imageView.image = image
-            }
-        }
-    }
-
+  
 }
 
 extension TagDetallesViewController: UITableViewDelegate, UITableViewDataSource{
@@ -200,9 +185,12 @@ extension TagDetallesViewController: UITableViewDelegate, UITableViewDataSource{
                 cell.fecha.text = "No hay fecha todavia"
             }
         }
-        
+        print(actividad.urlFoto)
         if let url = actividad.urlFoto {
-            setImage(from: url, imageView: cell.imagen)
+            //setImage(from: url, imageView: cell.imagen)
+            cell.imagen.loadThumbnail(urlSting: url)
+        }else{
+            cell.imagen.image = UIImage(named: "UALOGO3")
         }
         cell.lugar.text = actividad.lugar
         
@@ -217,3 +205,4 @@ extension TagDetallesViewController: UITableViewDelegate, UITableViewDataSource{
     
     
 }
+

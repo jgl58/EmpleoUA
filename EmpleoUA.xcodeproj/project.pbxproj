@@ -11,6 +11,8 @@
 		7D1356672451A9C6002DD79E /* TagDetallesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1356662451A9C6002DD79E /* TagDetallesViewController.swift */; };
 		7D428ED32448682C005C3E61 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D428ED22448682C005C3E61 /* MainViewController.swift */; };
 		7D5A7E9F24446E4900AF552F /* ActividadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D5A7E9E24446E4900AF552F /* ActividadViewController.swift */; };
+		7D5ED37424D9CB510052FB70 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D5ED37324D9CB510052FB70 /* Networking.swift */; };
+		7D5ED37624D9CBD40052FB70 /* ImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D5ED37524D9CBD40052FB70 /* ImageViewExtension.swift */; };
 		7D660106243F27AD00488228 /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D660105243F27AD00488228 /* APIRequest.swift */; };
 		7D660109243F79C900488228 /* Curso.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D660108243F79C900488228 /* Curso.swift */; };
 		7D66010B243F7A6100488228 /* TipoActividad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D66010A243F7A6100488228 /* TipoActividad.swift */; };
@@ -36,6 +38,8 @@
 		7D1356662451A9C6002DD79E /* TagDetallesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagDetallesViewController.swift; sourceTree = "<group>"; };
 		7D428ED22448682C005C3E61 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		7D5A7E9E24446E4900AF552F /* ActividadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActividadViewController.swift; sourceTree = "<group>"; };
+		7D5ED37324D9CB510052FB70 /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
+		7D5ED37524D9CBD40052FB70 /* ImageViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewExtension.swift; sourceTree = "<group>"; };
 		7D660105243F27AD00488228 /* APIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
 		7D660108243F79C900488228 /* Curso.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Curso.swift; sourceTree = "<group>"; };
 		7D66010A243F7A6100488228 /* TipoActividad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipoActividad.swift; sourceTree = "<group>"; };
@@ -81,6 +85,7 @@
 			children = (
 				7D1356662451A9C6002DD79E /* TagDetallesViewController.swift */,
 				7DBED402248562B100825FAA /* ActividadItem.swift */,
+				7D5ED37524D9CBD40052FB70 /* ImageViewExtension.swift */,
 			);
 			path = Tags;
 			sourceTree = "<group>";
@@ -97,6 +102,7 @@
 			isa = PBXGroup;
 			children = (
 				7D660105243F27AD00488228 /* APIRequest.swift */,
+				7D5ED37324D9CB510052FB70 /* Networking.swift */,
 			);
 			path = DAO;
 			sourceTree = "<group>";
@@ -295,7 +301,9 @@
 			files = (
 				7D66010F243F7B6B00488228 /* Matricula.swift in Sources */,
 				7D66010D243F7AD500488228 /* Tag.swift in Sources */,
+				7D5ED37424D9CB510052FB70 /* Networking.swift in Sources */,
 				7DBED403248562B100825FAA /* ActividadItem.swift in Sources */,
+				7D5ED37624D9CBD40052FB70 /* ImageViewExtension.swift in Sources */,
 				7D428ED32448682C005C3E61 /* MainViewController.swift in Sources */,
 				7DB61DCA242D638A00F1D293 /* EmpleoUA.xcdatamodeld in Sources */,
 				7D0596C8247FDE87005219F7 /* CustomScrollView.swift in Sources */,
