@@ -185,7 +185,7 @@ extension TagDetallesViewController: UITableViewDelegate, UITableViewDataSource{
                 cell.fecha.text = "No hay fecha todavia"
             }
         }
-        print(actividad.urlFoto)
+        
         if let url = actividad.urlFoto {
             //setImage(from: url, imageView: cell.imagen)
             cell.imagen.loadThumbnail(urlSting: url)
@@ -193,8 +193,6 @@ extension TagDetallesViewController: UITableViewDelegate, UITableViewDataSource{
             cell.imagen.image = UIImage(named: "UALOGO3")
         }
         cell.lugar.text = actividad.lugar
-        
-        // Configure the cell...
 
         return cell
     }
