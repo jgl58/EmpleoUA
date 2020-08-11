@@ -9,32 +9,57 @@
 import UIKit
 
 class CategoriaViewController: UIViewController {
+    
+    var categoryID : Int!
+    @IBOutlet weak var tableView: UITableView!
+    var color : UIColor!
+    
+    var options : [String]!
+    
+//    lazy var scrollView: CustomScrollView = {
+//        let sview = CustomScrollView(view: view, buttonHeight: 400.0)
+//        return sview
+//    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Do any additional setup after loading the view.
-        self.title = "Categoria"
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
+        
+        print(categoryID)
+        switch categoryID {
+        
+        case 2:
+            options = ["Prácticas","Portal de empleo para titulados o tituladas de la UA"]
+            break
+        case 5:
+            options = ["¿Tienes una idea emprendedora?","¿Cómo afrontar la busqueda de empleo?","¿Cómo desarrollar mi currciculum?",
+            "¿Cómo preparar una entrevista de trabajo?", "Tengo discapacidad o necesito apoyo educativo, ¿cómo busco trabajo?",
+            "Programa de actividades de orientación", "Recursos"]
+            break
+        case 6:
+            options = ["Programa Mejora tu inserción laboral","TAlleres UA:Emprende Lab","Factoria de Desarrollo",
+            "GENNERA-Retos empresas-estudiantes", "Tabarca Emprende",
+            "Congreso SeoPlus"]
+            break
+            
+        default:
+             options = ["Formación para el emprendedor","Explorer","Programa de desarrollo de ideas",
+                       "Concursos", "Cita de orientación emprendedora",
+                       "Cita de orientación emprendedora"]
+            break
+        }
+        
+//
+//        // Do any additional setup after loading the view.
+//        OperationQueue.main.addOperation {
+//          //  self.view.addSubview(self.scrollView)
+//            self.setupButtons()
+//        }
     }
   
-    
-    
-    /*lazy var scrollView: CustomScrollView = {
-        let sview = CustomScrollView(view: view, buttonHeight: 400.0)
-        return sview
-    }()
-
- 
- 
- OperationQueue.main.addOperation {
-                        self.tableView.isHidden = true
-
-                        self.view.addSubview(self.scrollView)
-                        self.setupButtons()
-                    }
- 
- 
- func setupButtons(){
+    func setupButtons(){
      let frame = self.view.frame
      
      let myX = frame.width/4
@@ -67,6 +92,71 @@ class CategoriaViewController: UIViewController {
      
      self.view.addSubview(buttonPortal)
          
- }*/
+    }
+    
+    @objc func pressedPracticas(_ sender: UIButton!) {
+        var url : String = ""
+        if sender.tag == 1 {
+             url = "https://web.ua.es/es/centro-empleo/practicas-y-empleo/practicas-en-la-ua/"
+            
+        }else if sender.tag == 2 {
+             url = "https://web.ua.es/es/centro-empleo/practicas-y-empleo/ofertas-de-empleo-para-titulados-de-la-ua/"
+            
+        }
+        
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let newViewController = storyBoard.instantiateViewController(withIdentifier: "WebView") as! WebViewController
+        
+         newViewController.url = url
+         navigationController!.pushViewController(newViewController, animated: true)
+        
+    }
+    
 
+}
+
+extension CategoriaViewController: UITableViewDelegate, UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        // #warning Incomplete implementation, return the number of sections
+        return 1
+    }
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        // #warning Incomplete implementation, return the number of rows
+        return options.count
+    }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 200.0
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CategoriaCell", for: indexPath) as! CategoriaCell
+        let actividad = options[indexPath.row]
+        cell.titulo.text = actividad
+        cell.backgroundColor = self.color
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+}
+
+class CategoriaCell: UITableViewCell {
+    
+    @IBOutlet weak var titulo: UILabel!
+    @IBOutlet weak var containerView: UIView!
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        // Initialization code
+    }
+
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+
+        // Configure the view for the selected state
+    }
+    
 }

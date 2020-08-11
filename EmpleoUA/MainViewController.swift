@@ -112,27 +112,39 @@ extension MainViewController: UITableViewDelegate,UITableViewDataSource{
             //Utilizmos el UIStoryboard para tener cargados los outlets
             case 0:
                 let nextViewController : CategoriaViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Categoria") as! CategoriaViewController
+                nextViewController.title = self.categories[indexPath.row].name
+                nextViewController.categoryID = self.categories[indexPath.row].id
+                nextViewController.color = self.colorOrder[indexPath.row]
                 self.navigationController?.pushViewController(nextViewController, animated: true)
                 
                 
             case 1:
                 let nextViewController : ListaActividadesViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ListaActividades") as! ListaActividadesViewController
 
-                nextViewController.title = self.categories[1].name
-                nextViewController.tagID = self.categories[1].id
+                nextViewController.title = self.categories[indexPath.row].name
+                nextViewController.tagID = self.categories[indexPath.row].id
                 self.navigationController?.pushViewController(nextViewController, animated: true)
                 
                 
             case 2:
                 let nextViewController : CategoriaViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Categoria") as! CategoriaViewController
+                nextViewController.title = self.categories[indexPath.row].name
+                nextViewController.categoryID = self.categories[indexPath.row].id
+                nextViewController.color = self.colorOrder[indexPath.row]
                 self.navigationController?.pushViewController(nextViewController, animated: true)
                 
             case 3 :
                 let nextViewController : CategoriaViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Categoria") as! CategoriaViewController
+                nextViewController.title = self.categories[indexPath.row].name
+                nextViewController.categoryID = self.categories[indexPath.row].id
+                nextViewController.color = self.colorOrder[indexPath.row]
                 self.navigationController?.pushViewController(nextViewController, animated: true)
             
             default:
                 let nextViewController : CategoriaViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Categoria") as! CategoriaViewController
+                nextViewController.title = self.categories[indexPath.row].name
+                nextViewController.categoryID = self.categories[indexPath.row].id
+                nextViewController.color = self.colorOrder[indexPath.row]
                 self.navigationController?.pushViewController(nextViewController, animated: true)
         }
         

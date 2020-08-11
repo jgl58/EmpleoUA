@@ -66,23 +66,6 @@ class ListaActividadesViewController: UIViewController {
         return nil
     }
 
-    @objc func pressedPracticas(_ sender: UIButton!) {
-        var url : String = ""
-        if sender.tag == 1 {
-             url = "https://web.ua.es/es/centro-empleo/practicas-y-empleo/practicas-en-la-ua/"
-            
-        }else if sender.tag == 2 {
-             url = "https://web.ua.es/es/centro-empleo/practicas-y-empleo/ofertas-de-empleo-para-titulados-de-la-ua/"
-            
-        }
-        
-        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let newViewController = storyBoard.instantiateViewController(withIdentifier: "WebView") as! WebViewController
-        
-         newViewController.url = url
-         navigationController!.pushViewController(newViewController, animated: true)
-        
-    }
     
 
   
