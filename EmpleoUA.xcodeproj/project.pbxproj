@@ -8,7 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		7D0596C8247FDE87005219F7 /* CustomScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0596C7247FDE87005219F7 /* CustomScrollView.swift */; };
-		7D1356672451A9C6002DD79E /* TagDetallesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1356662451A9C6002DD79E /* TagDetallesViewController.swift */; };
+		7D2F623524DDAC5700A0E4DF /* ListaActividadesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D2F623424DDAC5700A0E4DF /* ListaActividadesViewController.swift */; };
+		7D2F623724DDB19400A0E4DF /* CategoriaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D2F623624DDB19400A0E4DF /* CategoriaViewController.swift */; };
 		7D428ED32448682C005C3E61 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D428ED22448682C005C3E61 /* MainViewController.swift */; };
 		7D5A7E9F24446E4900AF552F /* ActividadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D5A7E9E24446E4900AF552F /* ActividadViewController.swift */; };
 		7D5ED37424D9CB510052FB70 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D5ED37324D9CB510052FB70 /* Networking.swift */; };
@@ -35,7 +36,8 @@
 		081C6CE28B12D1530202A5CA /* Pods_EmpleoUA.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EmpleoUA.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		79CED33930F523271BB108E4 /* Pods-EmpleoUA.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EmpleoUA.release.xcconfig"; path = "Target Support Files/Pods-EmpleoUA/Pods-EmpleoUA.release.xcconfig"; sourceTree = "<group>"; };
 		7D0596C7247FDE87005219F7 /* CustomScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomScrollView.swift; sourceTree = "<group>"; };
-		7D1356662451A9C6002DD79E /* TagDetallesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagDetallesViewController.swift; sourceTree = "<group>"; };
+		7D2F623424DDAC5700A0E4DF /* ListaActividadesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListaActividadesViewController.swift; sourceTree = "<group>"; };
+		7D2F623624DDB19400A0E4DF /* CategoriaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriaViewController.swift; sourceTree = "<group>"; };
 		7D428ED22448682C005C3E61 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		7D5A7E9E24446E4900AF552F /* ActividadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActividadViewController.swift; sourceTree = "<group>"; };
 		7D5ED37324D9CB510052FB70 /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
@@ -83,9 +85,10 @@
 		7D0596CA247FF1F4005219F7 /* Tags */ = {
 			isa = PBXGroup;
 			children = (
-				7D1356662451A9C6002DD79E /* TagDetallesViewController.swift */,
+				7D2F623424DDAC5700A0E4DF /* ListaActividadesViewController.swift */,
 				7DBED402248562B100825FAA /* ActividadItem.swift */,
 				7D5ED37524D9CBD40052FB70 /* ImageViewExtension.swift */,
+				7D2F623624DDB19400A0E4DF /* CategoriaViewController.swift */,
 			);
 			path = Tags;
 			sourceTree = "<group>";
@@ -307,13 +310,14 @@
 				7D428ED32448682C005C3E61 /* MainViewController.swift in Sources */,
 				7DB61DCA242D638A00F1D293 /* EmpleoUA.xcdatamodeld in Sources */,
 				7D0596C8247FDE87005219F7 /* CustomScrollView.swift in Sources */,
+				7D2F623524DDAC5700A0E4DF /* ListaActividadesViewController.swift in Sources */,
 				7DB61DC0242D638A00F1D293 /* AppDelegate.swift in Sources */,
 				7D660111243F7BED00488228 /* Actividad.swift in Sources */,
 				7D660106243F27AD00488228 /* APIRequest.swift in Sources */,
 				7D660109243F79C900488228 /* Curso.swift in Sources */,
 				7DB61DC2242D638A00F1D293 /* SceneDelegate.swift in Sources */,
+				7D2F623724DDB19400A0E4DF /* CategoriaViewController.swift in Sources */,
 				7D5A7E9F24446E4900AF552F /* ActividadViewController.swift in Sources */,
-				7D1356672451A9C6002DD79E /* TagDetallesViewController.swift in Sources */,
 				7DB0624A24C9A6DB0005F1AE /* LoginController.swift in Sources */,
 				7DCBD8DC24A27452006BA67B /* WebViewController.swift in Sources */,
 				7D66010B243F7A6100488228 /* TipoActividad.swift in Sources */,

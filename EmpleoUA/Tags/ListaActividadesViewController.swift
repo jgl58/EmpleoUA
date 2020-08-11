@@ -1,74 +1,40 @@
 //
-//  TagDetallesViewController.swift
+//  ListaActividadesViewController.swift
 //  EmpleoUA
 //
-//  Created by Jonay Gilabert López on 23/04/2020.
+//  Created by Jonay Gilabert López on 07/08/2020.
 //  Copyright © 2020 Jonay Gilabert López. All rights reserved.
 //
 
 import UIKit
 import WebKit
-import TinyConstraints
 
-class TagDetallesViewController: UIViewController {
-    
+class ListaActividadesViewController: UIViewController {
+
     var tagID : Int?
-    private let webView = WKWebView(frame: .zero)
     
     var activities = [Actividad]()
     var colorOrder = [#colorLiteral(red: 0.0431372549, green: 0.3019607843, blue: 0.4196078431, alpha: 1),#colorLiteral(red: 0.1529411765, green: 0.462745098, blue: 0.462745098, alpha: 1),#colorLiteral(red: 0.5882352941, green: 0.2980392157, blue: 0.1411764706, alpha: 1),#colorLiteral(red: 0.2549019608, green: 0.2549019608, blue: 0.2549019608, alpha: 1),#colorLiteral(red: 0.6549019608, green: 0.2784313725, blue: 0.3803921569, alpha: 1)]
-    @IBOutlet weak var tableView: UITableView!
     
-
-    //    @IBOutlet weak var scrollView: UIScrollView!
-
-    lazy var scrollView: CustomScrollView = {
-        let sview = CustomScrollView(view: view, buttonHeight: 400.0)
-        return sview
-    }()
-
+    @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
+       
         self.tableView.delegate = self
         self.tableView.dataSource = self
   
-        APIRequest.getTag(url: "/apiCategorias/tags/"+String(tagID!)){ data in
-            if let tag = data {
-                if tag.name == "Prácticas y empleo"{
-                    OperationQueue.main.addOperation {
-                        self.tableView.isHidden = true
-
-                        self.view.addSubview(self.scrollView)
-                        self.setupButtons()
-                    }
-                }else if tag.id == 5 {
-//                    hacer algo con la orientación
-
-
-                }else{
-
-                    APIRequest.getActividadesByTag(tag: 1){ data in
-                        if let act = data {
-                            print(String(tag.id) + " " + tag.name)
-                            print("Nº de actividades: "+String(act.count))
-                            OperationQueue.main.addOperation {
-                                self.tableView.isHidden = false
-                               
-                                self.activities = act
-//                                self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Filtrar", style: .plain, target: self, action: #selector(self.menu))
-                                self.tableView.reloadData()
-                                //self.setupActivites()
-                            }
-                        }
-                    }
+       APIRequest.getActividadesByTag(tag: 1){ data in
+            if let act = data {
+                print("Nº de actividades: "+String(act.count))
+                OperationQueue.main.addOperation {
+                    
+                    self.activities = act
+                    self.tableView.reloadData()
                 }
             }
         }
 
-        // Do any additional setup after loading the view.
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -99,44 +65,7 @@ class TagDetallesViewController: UIViewController {
         }
         return nil
     }
-    
-    
-    
-    func setupButtons(){
-        let frame = self.view.frame
-        
-        let myX = frame.width/4
-        var myY = frame.height/3
-        
-        let myHeight = frame.height/5
-        let myWidth = frame.width/2
-        let padding : CGFloat = 10.0
-        
-        var idColor = 0
-        
-        let button = UIButton(frame: CGRect(x: myX, y: myY, width: myWidth, height:myHeight))
-        button.tag = 1
-        button.backgroundColor = #colorLiteral(red: 0.0431372549, green: 0.3019607843, blue: 0.4196078431, alpha: 1)
-        button.setTitle("Prácticas", for: [])
-        button.titleLabel?.font = UIFont(name: "Quicksand", size: 20.0)
-        button.addTarget(self, action: #selector(pressedPracticas), for: .touchUpInside)
-        
-        self.view.addSubview(button)
-        
-        idColor += 1
-        myY += myHeight + padding
-        
-        let buttonPortal = UIButton(frame: CGRect(x: myX, y: myY, width: myWidth, height:myHeight))
-        buttonPortal.tag = 2
-        buttonPortal.backgroundColor = #colorLiteral(red: 0.0431372549, green: 0.3019607843, blue: 0.4196078431, alpha: 1)
-        buttonPortal.setTitle("Portal de empleo", for: [])
-        buttonPortal.titleLabel?.font = UIFont(name: "Quicksand", size: 20.0)
-        buttonPortal.addTarget(self, action: #selector(pressedPracticas), for: .touchUpInside)
-        
-        self.view.addSubview(buttonPortal)
-            
-    }
-    
+
     @objc func pressedPracticas(_ sender: UIButton!) {
         var url : String = ""
         if sender.tag == 1 {
@@ -155,14 +84,11 @@ class TagDetallesViewController: UIViewController {
         
     }
     
-    @objc func menu() {
-        
 
-    }
   
 }
 
-extension TagDetallesViewController: UITableViewDelegate, UITableViewDataSource{
+extension ListaActividadesViewController: UITableViewDelegate, UITableViewDataSource{
     
     func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
@@ -203,4 +129,3 @@ extension TagDetallesViewController: UITableViewDelegate, UITableViewDataSource{
     
     
 }
-

@@ -20,13 +20,11 @@ class APIRequest {
         let task = session.dataTask(with: url, completionHandler: { data, response, error in
             // Check if an error occured
             if error != nil {
-                // HERE you can manage the error
                 print(error as Any)
                 callback(nil)
             }
             do {
                 let json = try JSONDecoder().decode([Tag].self, from: data!)
-//                let json = try? JSONSerialization.jsonObject(with: data!, options: [])
                 callback(json)
            } catch {
                print("Error during JSON serialization: \(error.localizedDescription)")

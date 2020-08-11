@@ -19,13 +19,12 @@ class MainViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.title = "EmpleoUA"
     
         self.tableView.delegate = self
         self.tableView.dataSource = self
         
-//        view.addSubview(scrollView)
-      //  scrollView.addSubview(containerView)
-
          APIRequest.getTags(url: "/apiCategorias/tags"){ data in
 
             if let tags = data {
@@ -70,7 +69,7 @@ class MainViewController: UIViewController{
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "tagSegue" {
-            if let nextViewController = segue.destination as? TagDetallesViewController {
+            if let nextViewController = segue.destination as? ListaActividadesViewController {
                 
                 nextViewController.title = self.categories[self.tableView.indexPathForSelectedRow!.row].name
                     nextViewController.tagID = self.categories[self.tableView.indexPathForSelectedRow!.row].id
@@ -101,12 +100,45 @@ extension MainViewController: UITableViewDelegate,UITableViewDataSource{
         cell.tag = categories[indexPath.row].id
         cell.backgroundColor = colorOrder[indexPath.row]
         cell.titulo.text = categories[indexPath.row].name
-        
+        cell.layer.cornerRadius = 5
+
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
             tableView.deselectRow(at: indexPath, animated: true)
+        
+        switch indexPath.row {
+            //Utilizmos el UIStoryboard para tener cargados los outlets
+            case 0:
+                let nextViewController : CategoriaViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Categoria") as! CategoriaViewController
+                self.navigationController?.pushViewController(nextViewController, animated: true)
+                
+                
+            case 1:
+                let nextViewController : ListaActividadesViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ListaActividades") as! ListaActividadesViewController
+
+                nextViewController.title = self.categories[1].name
+                nextViewController.tagID = self.categories[1].id
+                self.navigationController?.pushViewController(nextViewController, animated: true)
+                
+                
+            case 2:
+                let nextViewController : CategoriaViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Categoria") as! CategoriaViewController
+                self.navigationController?.pushViewController(nextViewController, animated: true)
+                
+            case 3 :
+                let nextViewController : CategoriaViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Categoria") as! CategoriaViewController
+                self.navigationController?.pushViewController(nextViewController, animated: true)
+            
+            default:
+                let nextViewController : CategoriaViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Categoria") as! CategoriaViewController
+                self.navigationController?.pushViewController(nextViewController, animated: true)
+        }
+        
+        
+        
+        
     }
 }
 
@@ -125,4 +157,5 @@ class TagCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
 }

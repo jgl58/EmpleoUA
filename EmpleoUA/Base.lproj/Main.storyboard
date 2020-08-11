@@ -41,7 +41,6 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="titulo" destination="MWV-eT-J2k" id="3rr-r0-40B"/>
-                                            <segue destination="kn0-o2-9H8" kind="show" identifier="tagSegue" id="ZU5-jF-AJl"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -65,16 +64,31 @@
             </objects>
             <point key="canvasLocation" x="1007.2" y="90.404797601199405"/>
         </scene>
-        <!--Tag Detalles View Controller-->
+        <!--Categoria View Controller-->
+        <scene sceneID="Ln7-Ip-8yi">
+            <objects>
+                <viewController storyboardIdentifier="Categoria" id="dd6-UA-Klh" customClass="CategoriaViewController" customModule="EmpleoUA" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="20r-vz-Hv5">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="8qM-I7-TDg"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aER-9E-9Ob" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1820" y="846"/>
+        </scene>
+        <!--Lista Actividades View Controller-->
         <scene sceneID="mMg-AQ-koU">
             <objects>
-                <viewController storyboardIdentifier="TagDetalle" id="kn0-o2-9H8" customClass="TagDetallesViewController" customModule="EmpleoUA" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ListaActividades" id="kn0-o2-9H8" customClass="ListaActividadesViewController" customModule="EmpleoUA" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rsk-ds-hUe">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="EED-UD-ZVH">
-                                <rect key="frame" x="0.0" y="44" width="375" height="623"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="368" id="iRF-4f-whK" customClass="ActividadItem" customModule="EmpleoUA" customModuleProvider="target">
@@ -157,7 +171,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="i2I-DR-cml"/>
                     <connections>
-                        <outlet property="tableView" destination="EED-UD-ZVH" id="EwW-sP-K8H"/>
+                        <outlet property="tableView" destination="EED-UD-ZVH" id="XDV-St-jJy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Z0-cZ-gbz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -169,30 +183,30 @@
             <objects>
                 <viewController storyboardIdentifier="ActividadDetalle" id="CJQ-8q-Zuj" customClass="ActividadViewController" customModule="EmpleoUA" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="HLd-ci-kLb">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bQg-Kh-m1w">
-                                <rect key="frame" x="16" y="110" width="343" height="196"/>
+                                <rect key="frame" x="16" y="66" width="343" height="196"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="196" id="3Ow-cB-778"/>
                                     <constraint firstAttribute="width" constant="343" id="I8n-uW-lGI"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sm9-pI-wnG">
-                                <rect key="frame" x="16" y="326" width="42" height="21"/>
+                                <rect key="frame" x="16" y="282" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CeS-3d-6Qq">
-                                <rect key="frame" x="16" y="390" width="42" height="21"/>
+                                <rect key="frame" x="16" y="346" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i1y-nl-93o">
-                                <rect key="frame" x="16" y="64" width="44.5" height="21"/>
+                                <rect key="frame" x="16" y="20" width="44.5" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21" id="0VY-7h-c0m"/>
                                 </constraints>
@@ -201,21 +215,21 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UJF-6k-fCw">
-                                <rect key="frame" x="77" y="486" width="221" height="30"/>
+                                <rect key="frame" x="77" y="442" width="221" height="30"/>
                                 <state key="normal" title="Inscribirse"/>
                                 <connections>
                                     <action selector="inscribirse:" destination="CJQ-8q-Zuj" eventType="touchUpInside" id="wj2-Ln-qIz"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NQr-mp-Wgs">
-                                <rect key="frame" x="77" y="448" width="221" height="30"/>
+                                <rect key="frame" x="77" y="404" width="221" height="30"/>
                                 <state key="normal" title="Ver más"/>
                                 <connections>
                                     <action selector="goWebsite:" destination="CJQ-8q-Zuj" eventType="touchUpInside" id="dLN-XH-A8J"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4hp-sI-rki">
-                                <rect key="frame" x="16" y="358" width="42" height="21"/>
+                                <rect key="frame" x="16" y="314" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
