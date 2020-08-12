@@ -83,8 +83,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="142"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K1k-sU-V80">
-                                                    <rect key="frame" x="166.5" y="60.5" width="42" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K1k-sU-V80">
+                                                    <rect key="frame" x="15" y="61" width="345" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -92,8 +92,10 @@
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
-                                                <constraint firstItem="K1k-sU-V80" firstAttribute="centerX" secondItem="voT-3S-TMf" secondAttribute="centerX" id="KWv-KF-cT5"/>
-                                                <constraint firstItem="K1k-sU-V80" firstAttribute="centerY" secondItem="voT-3S-TMf" secondAttribute="centerY" id="mHd-AQ-vqx"/>
+                                                <constraint firstItem="K1k-sU-V80" firstAttribute="leading" secondItem="voT-3S-TMf" secondAttribute="leading" constant="15" id="1wv-pX-EcZ"/>
+                                                <constraint firstAttribute="trailing" secondItem="K1k-sU-V80" secondAttribute="trailing" constant="15" id="I0R-qh-JmM"/>
+                                                <constraint firstAttribute="bottom" secondItem="K1k-sU-V80" secondAttribute="bottom" constant="60.5" id="KIQ-Or-26a"/>
+                                                <constraint firstItem="K1k-sU-V80" firstAttribute="top" secondItem="voT-3S-TMf" secondAttribute="top" constant="61" id="szE-uT-eKU"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -118,7 +120,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aER-9E-9Ob" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1820" y="846"/>
+            <point key="canvasLocation" x="1820" y="845.1274362818591"/>
         </scene>
         <!--Lista Actividades View Controller-->
         <scene sceneID="mMg-AQ-koU">

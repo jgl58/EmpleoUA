@@ -49,7 +49,7 @@ class CategoriaViewController: UIViewController {
                 Opciones(titulo: "Tengo discapacidad o necesito apoyo educativo, ¿cómo busco trabajo?",tipo: .Solicitar),
                 Opciones(titulo: "Programa de actividades de orientación",tipo: .WebKit, url: "https://web.ua.es/es/centro-empleo/orientacion/programa-de-actividades-de-orientacion.html"),
                 Opciones(titulo: "Recursos",tipo: .WebKit, url: "https://web.ua.es/es/centro-empleo/orientacion/recursos.html"),
-                Opciones(titulo: "Otras  actividades",tipo: .Actividad,url: "5")
+                Opciones(titulo: "Otras actividades",tipo: .Actividad,url: "5")
             ]
             break
         case 6:
@@ -60,7 +60,7 @@ class CategoriaViewController: UIViewController {
                 Opciones(titulo: "GENNERA-Retos empresas-estudiantes", tipo: .WebKit, url: "https://web.ua.es/es/centro-empleo/formacion/gennera-retos-empresas-estudiantes.html"),
                 Opciones(titulo: "Tabarca Emprende", tipo: .WebKit, url: "https://web.ua.es/es/centro-empleo/formacion/tabarca-emprende.html"),
                 Opciones(titulo: "Congreso SeoPlus", tipo: .WebKit, url: "https://web.ua.es/es/centro-empleo/formacion/congreso-seoplus.html"),
-                Opciones(titulo: "Otras  actividades",tipo: .Actividad, url: "6")
+                Opciones(titulo: "Otras actividades",tipo: .Actividad, url: "6")
             ]
             break
             
