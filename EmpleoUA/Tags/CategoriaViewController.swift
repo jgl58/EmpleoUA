@@ -118,7 +118,8 @@ extension CategoriaViewController: UITableViewDelegate, UITableViewDataSource {
         let actividad = options[indexPath.row]
         cell.titulo.text = actividad.titulo
    
-        cell.backgroundColor = self.color
+        cell.containerView.backgroundColor = self.color
+        cell.containerView.layer.cornerRadius = 5
         return cell
     }
     

@@ -98,9 +98,9 @@ extension MainViewController: UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TagCell", for: indexPath) as! TagCell
         cell.tag = categories[indexPath.row].id
-        cell.backgroundColor = colorOrder[indexPath.row]
+        cell.containerView.backgroundColor = colorOrder[indexPath.row]
         cell.titulo.text = categories[indexPath.row].name
-        cell.layer.cornerRadius = 5
+        cell.containerView.layer.cornerRadius = 5
 
         return cell
     }

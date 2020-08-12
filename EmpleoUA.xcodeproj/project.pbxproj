@@ -85,8 +85,6 @@
 		7D0596CA247FF1F4005219F7 /* Tags */ = {
 			isa = PBXGroup;
 			children = (
-				7D2F623424DDAC5700A0E4DF /* ListaActividadesViewController.swift */,
-				7DBED402248562B100825FAA /* ActividadItem.swift */,
 				7D5ED37524D9CBD40052FB70 /* ImageViewExtension.swift */,
 				7D2F623624DDB19400A0E4DF /* CategoriaViewController.swift */,
 			);
@@ -97,6 +95,8 @@
 			isa = PBXGroup;
 			children = (
 				7D5A7E9E24446E4900AF552F /* ActividadViewController.swift */,
+				7D2F623424DDAC5700A0E4DF /* ListaActividadesViewController.swift */,
+				7DBED402248562B100825FAA /* ActividadItem.swift */,
 			);
 			path = Activities;
 			sourceTree = "<group>";
