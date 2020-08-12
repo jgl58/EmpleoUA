@@ -24,7 +24,7 @@ class ListaActividadesViewController: UIViewController {
         self.tableView.delegate = self
         self.tableView.dataSource = self
   
-       APIRequest.getActividadesByTag(tag: 1){ data in
+       APIRequest.getActividadesByTag(tag: tagID!){ data in
             if let act = data {
                 print("Nº de actividades: "+String(act.count))
                 OperationQueue.main.addOperation {

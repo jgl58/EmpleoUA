@@ -107,11 +107,11 @@ extension MainViewController: UITableViewDelegate,UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
             tableView.deselectRow(at: indexPath, animated: true)
-        
+         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         switch indexPath.row {
             //Utilizmos el UIStoryboard para tener cargados los outlets
             case 0:
-                let nextViewController : CategoriaViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Categoria") as! CategoriaViewController
+                let nextViewController : CategoriaViewController = storyBoard.instantiateViewController(withIdentifier: "Categoria") as! CategoriaViewController
                 nextViewController.title = self.categories[indexPath.row].name
                 nextViewController.categoryID = self.categories[indexPath.row].id
                 nextViewController.color = self.colorOrder[indexPath.row]
@@ -119,7 +119,7 @@ extension MainViewController: UITableViewDelegate,UITableViewDataSource{
                 
                 
             case 1:
-                let nextViewController : ListaActividadesViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ListaActividades") as! ListaActividadesViewController
+                let nextViewController : ListaActividadesViewController = storyBoard.instantiateViewController(withIdentifier: "ListaActividades") as! ListaActividadesViewController
 
                 nextViewController.title = self.categories[indexPath.row].name
                 nextViewController.tagID = self.categories[indexPath.row].id
@@ -127,21 +127,21 @@ extension MainViewController: UITableViewDelegate,UITableViewDataSource{
                 
                 
             case 2:
-                let nextViewController : CategoriaViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Categoria") as! CategoriaViewController
+                let nextViewController : CategoriaViewController = storyBoard.instantiateViewController(withIdentifier: "Categoria") as! CategoriaViewController
                 nextViewController.title = self.categories[indexPath.row].name
                 nextViewController.categoryID = self.categories[indexPath.row].id
                 nextViewController.color = self.colorOrder[indexPath.row]
                 self.navigationController?.pushViewController(nextViewController, animated: true)
                 
             case 3 :
-                let nextViewController : CategoriaViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Categoria") as! CategoriaViewController
+                let nextViewController : CategoriaViewController = storyBoard.instantiateViewController(withIdentifier: "Categoria") as! CategoriaViewController
                 nextViewController.title = self.categories[indexPath.row].name
                 nextViewController.categoryID = self.categories[indexPath.row].id
                 nextViewController.color = self.colorOrder[indexPath.row]
                 self.navigationController?.pushViewController(nextViewController, animated: true)
             
             default:
-                let nextViewController : CategoriaViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Categoria") as! CategoriaViewController
+                let nextViewController : CategoriaViewController = storyBoard.instantiateViewController(withIdentifier: "Categoria") as! CategoriaViewController
                 nextViewController.title = self.categories[indexPath.row].name
                 nextViewController.categoryID = self.categories[indexPath.row].id
                 nextViewController.color = self.colorOrder[indexPath.row]

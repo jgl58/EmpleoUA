@@ -14,7 +14,7 @@ class CategoriaViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     var color : UIColor!
     
-    var options : [String]!
+    var options : [Opciones]!
     
 //    lazy var scrollView: CustomScrollView = {
 //        let sview = CustomScrollView(view: view, buttonHeight: 400.0)
@@ -26,75 +26,59 @@ class CategoriaViewController: UIViewController {
         
         self.tableView.delegate = self
         self.tableView.dataSource = self
+        loadOpciones()
         
-        print(categoryID)
+    }
+  
+    func loadOpciones(){
         switch categoryID {
         
         case 2:
-            options = ["Prácticas","Portal de empleo para titulados o tituladas de la UA"]
+            options = [
+                Opciones(titulo: "Prácticas", tipo: .WebKit, url: "https://web.ua.es/es/centro-empleo/practicas-y-empleo/practicas-en-la-ua/"),
+                Opciones(titulo: "Portal de empleo para titulados o tituladas de la UA",tipo: .WebKit, url: "https://web.ua.es/es/centro-empleo/practicas-y-empleo/ofertas-de-empleo-para-titulados-de-la-ua/"),
+                Opciones(titulo: "Otras actividades",tipo: .Actividad, url: "1")
+            ]
             break
         case 5:
-            options = ["¿Tienes una idea emprendedora?","¿Cómo afrontar la busqueda de empleo?","¿Cómo desarrollar mi currciculum?",
-            "¿Cómo preparar una entrevista de trabajo?", "Tengo discapacidad o necesito apoyo educativo, ¿cómo busco trabajo?",
-            "Programa de actividades de orientación", "Recursos"]
+            options = [
+                Opciones(titulo: "¿Tienes una idea emprendedora?",tipo: .Solicitar),
+                Opciones(titulo: "¿Cómo afrontar la busqueda de empleo?",tipo: .Solicitar),
+                Opciones(titulo: "¿Cómo desarrollar mi currciculum?",tipo: .Solicitar),
+                Opciones(titulo: "¿Cómo preparar una entrevista de trabajo?",tipo: .Solicitar),
+                Opciones(titulo: "Tengo discapacidad o necesito apoyo educativo, ¿cómo busco trabajo?",tipo: .Solicitar),
+                Opciones(titulo: "Programa de actividades de orientación",tipo: .WebKit, url: "https://web.ua.es/es/centro-empleo/orientacion/programa-de-actividades-de-orientacion.html"),
+                Opciones(titulo: "Recursos",tipo: .WebKit, url: "https://web.ua.es/es/centro-empleo/orientacion/recursos.html"),
+                Opciones(titulo: "Otras  actividades",tipo: .Actividad,url: "5")
+            ]
             break
         case 6:
-            options = ["Programa Mejora tu inserción laboral","TAlleres UA:Emprende Lab","Factoria de Desarrollo",
-            "GENNERA-Retos empresas-estudiantes", "Tabarca Emprende",
-            "Congreso SeoPlus"]
+            options = [
+                Opciones(titulo: "Programa Mejora tu inserción laboral", tipo: .WebKit, url: "https://web.ua.es/es/centro-empleo/formacion/programa-mejora-tu-insercion-laboral.html"),
+                Opciones(titulo: "Talleres UA:Emprende Lab", tipo: .WebKit, url: "https://web.ua.es/es/centro-empleo/formacion/talleres-ua-emprende-lab.html"),
+                Opciones(titulo: "Factoria de Desarrollo", tipo: .WebKit, url: "https://web.ua.es/es/centro-empleo/formacion/factoria-de-desarrollo.html"),
+                Opciones(titulo: "GENNERA-Retos empresas-estudiantes", tipo: .WebKit, url: "https://web.ua.es/es/centro-empleo/formacion/gennera-retos-empresas-estudiantes.html"),
+                Opciones(titulo: "Tabarca Emprende", tipo: .WebKit, url: "https://web.ua.es/es/centro-empleo/formacion/tabarca-emprende.html"),
+                Opciones(titulo: "Congreso SeoPlus", tipo: .WebKit, url: "https://web.ua.es/es/centro-empleo/formacion/congreso-seoplus.html"),
+                Opciones(titulo: "Otras  actividades",tipo: .Actividad, url: "6")
+            ]
             break
             
         default:
-             options = ["Formación para el emprendedor","Explorer","Programa de desarrollo de ideas",
-                       "Concursos", "Cita de orientación emprendedora",
-                       "Cita de orientación emprendedora"]
+            options = [
+                Opciones(titulo: "Formación para el emprendedor",tipo: .Solicitar, url: "https://web.ua.es/es/centro-empleo/emprendimiento/formacion-emprendedor/"),
+                Opciones(titulo: "Explorer",tipo: .Solicitar, url: "https://web.ua.es/es/centro-empleo/emprendimiento/explorer/"),
+                Opciones(titulo: "Programa de desarrollo de ideas",tipo: .Solicitar, url: "https://web.ua.es/es/centro-empleo/emprendimiento/programa-desarrollo-de-ideas/"),
+                Opciones(titulo: "Concursos",tipo: .Solicitar, url: "https://web.ua.es/es/centro-empleo/emprendimiento/concursos/"),
+                Opciones(titulo: "Cita de orientación emprendedora",tipo: .Solicitar, url: "https://web.ua.es/es/centro-empleo/emprendimiento/cita-de-orientacion-emprendedora/"),
+                Opciones(titulo: "Espacios de trabajo",tipo: .Solicitar, url: "https://web.ua.es/es/centro-empleo/emprendimiento/espacios-de-trabajo/"),
+                Opciones(titulo: "Otras actividades",tipo: .Actividad, url: "7")
+            ]
             break
         }
-        
-//
-//        // Do any additional setup after loading the view.
-//        OperationQueue.main.addOperation {
-//          //  self.view.addSubview(self.scrollView)
-//            self.setupButtons()
-//        }
-    }
-  
-    func setupButtons(){
-     let frame = self.view.frame
-     
-     let myX = frame.width/4
-     var myY = frame.height/3
-     
-     let myHeight = frame.height/5
-     let myWidth = frame.width/2
-     let padding : CGFloat = 10.0
-     
-     var idColor = 0
-     
-     let button = UIButton(frame: CGRect(x: myX, y: myY, width: myWidth, height:myHeight))
-     button.tag = 1
-     button.backgroundColor = #colorLiteral(red: 0.0431372549, green: 0.3019607843, blue: 0.4196078431, alpha: 1)
-     button.setTitle("Prácticas", for: [])
-     button.titleLabel?.font = UIFont(name: "Quicksand", size: 20.0)
-     button.addTarget(self, action: #selector(pressedPracticas), for: .touchUpInside)
-     
-     self.view.addSubview(button)
-     
-     idColor += 1
-     myY += myHeight + padding
-     
-     let buttonPortal = UIButton(frame: CGRect(x: myX, y: myY, width: myWidth, height:myHeight))
-     buttonPortal.tag = 2
-     buttonPortal.backgroundColor = #colorLiteral(red: 0.0431372549, green: 0.3019607843, blue: 0.4196078431, alpha: 1)
-     buttonPortal.setTitle("Portal de empleo", for: [])
-     buttonPortal.titleLabel?.font = UIFont(name: "Quicksand", size: 20.0)
-     buttonPortal.addTarget(self, action: #selector(pressedPracticas), for: .touchUpInside)
-     
-     self.view.addSubview(buttonPortal)
-         
     }
     
-    @objc func pressedPracticas(_ sender: UIButton!) {
+    @objc func loadWebView(_ sender: UIButton!) {
         var url : String = ""
         if sender.tag == 1 {
              url = "https://web.ua.es/es/centro-empleo/practicas-y-empleo/practicas-en-la-ua/"
@@ -132,13 +116,35 @@ extension CategoriaViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CategoriaCell", for: indexPath) as! CategoriaCell
         let actividad = options[indexPath.row]
-        cell.titulo.text = actividad
+        cell.titulo.text = actividad.titulo
+   
         cell.backgroundColor = self.color
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        
+        let actividad = options[indexPath.row]
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        switch actividad.tipo {
+        case .Actividad:
+            let nextViewController : ListaActividadesViewController = storyboard.instantiateViewController(withIdentifier: "ListaActividades") as! ListaActividadesViewController
+            nextViewController.tagID = Int(actividad.url ?? "1")
+            self.navigationController?.pushViewController(nextViewController, animated: true)
+            break
+        case .Solicitar:
+            break
+        default://webkit
+            let nextViewController : WebViewController = storyboard.instantiateViewController(withIdentifier: "WebView") as! WebViewController
+            nextViewController.url = actividad.url
+            self.navigationController?.pushViewController(nextViewController, animated: true)
+            break
+        }
+        
+        
+        
     }
     
 }
@@ -160,3 +166,28 @@ class CategoriaCell: UITableViewCell {
     }
     
 }
+
+//Clase para separar el tipo de opciones de cada categoria
+
+enum TipoOpciones {
+    case WebKit, Actividad, Solicitar
+}
+
+class Opciones{
+    
+    var titulo : String
+    var tipo : TipoOpciones
+    var url : String?
+    
+    init(titulo: String, tipo: TipoOpciones) {
+        self.tipo = tipo
+        self.titulo = titulo
+    }
+    init(titulo: String, tipo: TipoOpciones, url: String) {
+        self.tipo = tipo
+        self.titulo = titulo
+        self.url = url
+    }
+    
+}
+
