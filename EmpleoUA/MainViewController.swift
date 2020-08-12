@@ -122,7 +122,7 @@ extension MainViewController: UITableViewDelegate,UITableViewDataSource{
                 let nextViewController : ListaActividadesViewController = storyBoard.instantiateViewController(withIdentifier: "ListaActividades") as! ListaActividadesViewController
 
                 nextViewController.title = self.categories[indexPath.row].name
-                nextViewController.tagID = self.categories[indexPath.row].id
+                nextViewController.tagID = 1
                 self.navigationController?.pushViewController(nextViewController, animated: true)
                 
                 

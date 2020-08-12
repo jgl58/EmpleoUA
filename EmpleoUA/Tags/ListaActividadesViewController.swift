@@ -27,11 +27,13 @@ class ListaActividadesViewController: UIViewController {
        APIRequest.getActividadesByTag(tag: tagID!){ data in
             if let act = data {
                 print("Nº de actividades: "+String(act.count))
-                OperationQueue.main.addOperation {
-                    
-                    self.activities = act
-                    self.tableView.reloadData()
-                }
+                
+                    OperationQueue.main.addOperation {
+                        self.activities = act
+                        self.tableView.reloadData()
+                    }
+                
+                
             }
         }
 

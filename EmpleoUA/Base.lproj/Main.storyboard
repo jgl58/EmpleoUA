@@ -205,10 +205,11 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="EED-UD-ZVH" firstAttribute="top" secondItem="baC-Gi-q1p" secondAttribute="top" id="OJR-fp-S5s"/>
                             <constraint firstItem="EED-UD-ZVH" firstAttribute="bottom" secondItem="baC-Gi-q1p" secondAttribute="bottom" id="QOV-1s-cZ0"/>
                             <constraint firstItem="EED-UD-ZVH" firstAttribute="trailing" secondItem="baC-Gi-q1p" secondAttribute="trailing" id="UUQ-Kp-f8O"/>
+                            <constraint firstItem="EED-UD-ZVH" firstAttribute="bottom" secondItem="baC-Gi-q1p" secondAttribute="bottom" id="gAs-8P-e5s"/>
                             <constraint firstItem="EED-UD-ZVH" firstAttribute="leading" secondItem="baC-Gi-q1p" secondAttribute="leading" id="nDS-EE-8xE"/>
+                            <constraint firstItem="EED-UD-ZVH" firstAttribute="top" secondItem="rsk-ds-hUe" secondAttribute="top" id="tiN-oy-iRd"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="baC-Gi-q1p"/>
                     </view>
