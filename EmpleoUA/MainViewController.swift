@@ -9,7 +9,7 @@
 import UIKit
 import TinyConstraints
 
-class MainViewController: UIViewController{
+class MainViewController: AuthViewController{
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -42,30 +42,7 @@ class MainViewController: UIViewController{
         }
         
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        if let _ = UserDefaults.standard.string(forKey: "Token") {
-            navigationItem.rightBarButtonItem =
-                       UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(logout))
-        }else{
-            navigationItem.rightBarButtonItem =
-                       UIBarButtonItem(title: "Login", style: .plain, target: self, action: #selector(login))
-        }
-    }
-    
-    @objc func logout(){
-        if let _ = UserDefaults.standard.string(forKey: "Token") {
-            print("Cerramos sesion")
-            UserDefaults.standard.removeObject(forKey: "Token")
-            navigationItem.rightBarButtonItem =
-                       UIBarButtonItem(title: "Login", style: .plain, target: self, action: #selector(login))
-        }
-    }
-
-    @objc func login(){
-        print("Inicio sesion")
-        navigationController?.pushViewController(LoginController(),animated: true) 
-    }
+  
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "tagSegue" {

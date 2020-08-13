@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ActividadViewController: UIViewController {
+class ActividadViewController: AuthViewController {
 
     var actividad : Actividad?
     

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CategoriaViewController: UIViewController {
+class CategoriaViewController: AuthViewController {
     
     var categoryID : Int!
     @IBOutlet weak var tableView: UITableView!
