@@ -9,24 +9,36 @@
 import UIKit
 
 class AuthViewController: UIViewController {
+    
 
     //Clase base que se encarga de controlar la autenticación y de la que heredan todas
     override func viewWillAppear(_ animated: Bool) {
         if let _ = UserDefaults.standard.string(forKey: "Token") {
             navigationItem.rightBarButtonItem =
-                       UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(logout))
+                UIBarButtonItem(image: UIImage(named: "Logout")!.withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(logout))
         }else{
             navigationItem.rightBarButtonItem =
-                       UIBarButtonItem(title: "Login", style: .plain, target: self, action: #selector(login))
+                UIBarButtonItem(image: UIImage(named: "Login")!.withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(login))
         }
     }
     
     @objc func logout(){
         if let _ = UserDefaults.standard.string(forKey: "Token") {
-            print("Cerramos sesion")
-            UserDefaults.standard.removeObject(forKey: "Token")
-            navigationItem.rightBarButtonItem =
-                       UIBarButtonItem(title: "Login", style: .plain, target: self, action: #selector(login))
+            
+            let alert = UIAlertController(title: "¿Desea cerrar sesión?", message: "", preferredStyle: .alert)
+
+            alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { action in
+                print("Cerramos sesion")
+                UserDefaults.standard.removeObject(forKey: "Token")
+                self.navigationItem.rightBarButtonItem =
+                    UIBarButtonItem(image: UIImage(named: "Login")!.withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(self.login))
+            }))
+            alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
+
+            self.present(alert, animated: true)
+            
+            
+            
         }
     }
 
