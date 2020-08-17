@@ -148,6 +148,21 @@
             </objects>
             <point key="canvasLocation" x="1820" y="845.1274362818591"/>
         </scene>
+        <!--Solicitar View Controller-->
+        <scene sceneID="FxD-Cg-ntt">
+            <objects>
+                <viewController restorationIdentifier="Solicitar" storyboardIdentifier="Solicitar" id="mv7-zD-3RG" customClass="SolicitarViewController" customModule="EmpleoUA" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Gud-FH-dHb">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="qV2-Ib-t4C"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ThU-Rn-VJd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2837" y="834"/>
+        </scene>
         <!--Lista Actividades View Controller-->
         <scene sceneID="mMg-AQ-koU">
             <objects>

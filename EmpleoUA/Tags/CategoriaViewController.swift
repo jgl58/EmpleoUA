@@ -136,6 +136,8 @@ extension CategoriaViewController: UITableViewDelegate, UITableViewDataSource {
             self.navigationController?.pushViewController(nextViewController, animated: true)
             break
         case .Solicitar:
+            let nextViewController : SolicitarViewController = storyboard.instantiateViewController(withIdentifier: "Solicitar") as! SolicitarViewController
+                       self.navigationController?.pushViewController(nextViewController, animated: true)
             break
         default://webkit
             let nextViewController : WebViewController = storyboard.instantiateViewController(withIdentifier: "WebView") as! WebViewController
