@@ -15,11 +15,6 @@ class CategoriaViewController: AuthViewController {
     var color : UIColor!
     
     var options : [Opciones]!
-    
-//    lazy var scrollView: CustomScrollView = {
-//        let sview = CustomScrollView(view: view, buttonHeight: 400.0)
-//        return sview
-//    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -130,20 +125,20 @@ extension CategoriaViewController: UITableViewDelegate, UITableViewDataSource {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
         switch actividad.tipo {
-        case .Actividad:
-            let nextViewController : ListaActividadesViewController = storyboard.instantiateViewController(withIdentifier: "ListaActividades") as! ListaActividadesViewController
-            nextViewController.tagID = Int(actividad.url ?? "1")
-            self.navigationController?.pushViewController(nextViewController, animated: true)
-            break
-        case .Solicitar:
-            let nextViewController : SolicitarViewController = storyboard.instantiateViewController(withIdentifier: "Solicitar") as! SolicitarViewController
-                       self.navigationController?.pushViewController(nextViewController, animated: true)
-            break
-        default://webkit
-            let nextViewController : WebViewController = storyboard.instantiateViewController(withIdentifier: "WebView") as! WebViewController
-            nextViewController.url = actividad.url
-            self.navigationController?.pushViewController(nextViewController, animated: true)
-            break
+            case .Actividad:
+                let nextViewController : ListaActividadesViewController = storyboard.instantiateViewController(withIdentifier: "ListaActividades") as! ListaActividadesViewController
+                nextViewController.tagID = Int(actividad.url ?? "1")
+                self.navigationController?.pushViewController(nextViewController, animated: true)
+                break
+            case .Solicitar:
+                let nextViewController : SolicitarViewController = storyboard.instantiateViewController(withIdentifier: "Solicitar") as! SolicitarViewController
+                           self.navigationController?.pushViewController(nextViewController, animated: true)
+                break
+            default://webkit
+                let nextViewController : WebViewController = storyboard.instantiateViewController(withIdentifier: "WebView") as! WebViewController
+                nextViewController.url = actividad.url
+                self.navigationController?.pushViewController(nextViewController, animated: true)
+                break
         }
         
         

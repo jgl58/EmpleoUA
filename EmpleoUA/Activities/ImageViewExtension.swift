@@ -15,11 +15,11 @@ extension UIImageView {
     
     /// This loadThumbnail function is used to download thumbnail image using urlString
     /// This method also using cache of loaded thumbnail using urlString as a key of cached thumbnail.
-    func loadThumbnail(urlSting: String) {
-        guard let url = URL(string: urlSting) else { return }
+    func loadThumbnail(urlString: String) {
+        guard let url = URL(string: urlString) else { return }
         image = nil
         
-        if let imageFromCache = imageCache.object(forKey: urlSting as AnyObject) {
+        if let imageFromCache = imageCache.object(forKey: urlString as AnyObject) {
             image = imageFromCache as? UIImage
             return
         }
@@ -28,7 +28,7 @@ extension UIImageView {
             switch result {
             case .success(let data):
                 guard let imageToCache = UIImage(data: data) else { return }
-                imageCache.setObject(imageToCache, forKey: urlSting as AnyObject)
+                imageCache.setObject(imageToCache, forKey: urlString as AnyObject)
                 self.image = UIImage(data: data)
             case .failure(_):
                 self.image = UIImage(named: "noImage")

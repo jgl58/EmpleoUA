@@ -26,8 +26,7 @@ class ListaActividadesViewController: AuthViewController {
   
        APIRequest.getActividadesByTag(tag: tagID!){ data in
             if let act = data {
-                print("Nº de actividades: "+String(act.count))
-                
+            
                     OperationQueue.main.addOperation {
                         self.activities = act
                         self.tableView.reloadData()
@@ -99,7 +98,7 @@ extension ListaActividadesViewController: UITableViewDelegate, UITableViewDataSo
         
         if let url = actividad.urlFoto {
             //setImage(from: url, imageView: cell.imagen)
-            cell.imagen.loadThumbnail(urlSting: url)
+            cell.imagen.loadThumbnail(urlString: url)
         }else{
             cell.imagen.image = UIImage(named: "UALOGO3")
         }

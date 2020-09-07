@@ -33,15 +33,15 @@ class LoginController: UIViewController, WKScriptMessageHandler {
         }
     
     func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
-            let dict = message.body as! [String:AnyObject]
-            let message    = dict["message"] as! String
-            print(message)
-            if let secretToken = dict["secretToken"] as? String {
-                print(secretToken)
-                saveToken(token: secretToken)
+        let dict = message.body as! [String:AnyObject]
+        let message    = dict["message"] as! String
+        print(message)
+        if let secretToken = dict["secretToken"] as? String {
+            print(secretToken)
+            saveToken(token: secretToken)
 
-            }
         }
+    }
         
         
         func saveToken(token: String){
@@ -49,7 +49,6 @@ class LoginController: UIViewController, WKScriptMessageHandler {
             defaults.set(token, forKey: "Token")
 
             _ = navigationController?.popViewController(animated: true)
-    //            let savedArray = defaults.object(forKey: "SavedArray") as? [String] ?? [String]() Leer token de 
         }
 
         
