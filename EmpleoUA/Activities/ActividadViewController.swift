@@ -39,6 +39,9 @@ class ActividadViewController: AuthViewController {
         if let url =  actividad?.urlFoto{
          setImage(from: url, imageView: imagen)
         }
+        
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Inscribirse", style: .done, target: self, action:
+            #selector(inscribir))
        
         // Do any additional setup after loading the view.
     }
@@ -64,6 +67,27 @@ class ActividadViewController: AuthViewController {
         
         newViewController.url = "https://appempleo.ua.es/actividad/ver/\(actividad?.urlAmigable ?? "")"
          navigationController!.pushViewController(newViewController, animated: true)
+    }
+    
+    @objc func inscribir(){
+        let defaults = UserDefaults.standard
+        if let authToken = defaults.string(forKey: "Token"){
+            print(authToken)
+            let alert = UIAlertController(title: "Te has inscrito a la oferta", message: "", preferredStyle: .alert)
+
+            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+
+            self.present(alert, animated: true)
+        }else{
+            let alert = UIAlertController(title: "No has iniciado sesión", message: "Se necesita iniciar sesión para poder registrarte", preferredStyle: .alert)
+            
+            alert.addAction(UIAlertAction(title: "Si", style: .default, handler: { action in
+                self.navigationController?.pushViewController(LoginController(), animated: true)
+            }))
+            alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
+
+            self.present(alert, animated: true)
+        }
     }
    
     @IBAction func inscribirse(_ sender: Any) {
