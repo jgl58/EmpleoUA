@@ -168,5 +168,30 @@ extension SolicitarViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        solicitarCita()
+//        falta añadir logica de la reserva
+    }
+    
+    func solicitarCita(){
+        let defaults = UserDefaults.standard
+       if let authToken = defaults.string(forKey: "Token"){
+           print(authToken)
+           let alert = UIAlertController(title: "Has reservado la cita", message: "", preferredStyle: .alert)
+
+           alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+
+           self.present(alert, animated: true)
+       }else{
+           let alert = UIAlertController(title: "No has iniciado sesión", message: "Se necesita iniciar sesión para poder registrarte", preferredStyle: .alert)
+           
+           alert.addAction(UIAlertAction(title: "Si", style: .default, handler: { action in
+               self.navigationController?.pushViewController(LoginController(), animated: true)
+           }))
+           alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
+
+           self.present(alert, animated: true)
+       }
+    }
     
 }
