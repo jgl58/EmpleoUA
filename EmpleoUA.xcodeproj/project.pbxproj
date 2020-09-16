@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7D0596C8247FDE87005219F7 /* CustomScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0596C7247FDE87005219F7 /* CustomScrollView.swift */; };
 		7D2F623524DDAC5700A0E4DF /* ListaActividadesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D2F623424DDAC5700A0E4DF /* ListaActividadesViewController.swift */; };
 		7D2F623724DDB19400A0E4DF /* CategoriaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D2F623624DDB19400A0E4DF /* CategoriaViewController.swift */; };
 		7D428ED32448682C005C3E61 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D428ED22448682C005C3E61 /* MainViewController.swift */; };
@@ -37,7 +36,6 @@
 /* Begin PBXFileReference section */
 		081C6CE28B12D1530202A5CA /* Pods_EmpleoUA.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EmpleoUA.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		79CED33930F523271BB108E4 /* Pods-EmpleoUA.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EmpleoUA.release.xcconfig"; path = "Target Support Files/Pods-EmpleoUA/Pods-EmpleoUA.release.xcconfig"; sourceTree = "<group>"; };
-		7D0596C7247FDE87005219F7 /* CustomScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomScrollView.swift; sourceTree = "<group>"; };
 		7D2F623424DDAC5700A0E4DF /* ListaActividadesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListaActividadesViewController.swift; sourceTree = "<group>"; };
 		7D2F623624DDB19400A0E4DF /* CategoriaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriaViewController.swift; sourceTree = "<group>"; };
 		7D428ED22448682C005C3E61 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -78,14 +76,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		7D0596C9247FF1DE005219F7 /* CustomScrollView */ = {
-			isa = PBXGroup;
-			children = (
-				7D0596C7247FDE87005219F7 /* CustomScrollView.swift */,
-			);
-			path = CustomScrollView;
-			sourceTree = "<group>";
-		};
 		7D0596CA247FF1F4005219F7 /* Tags */ = {
 			isa = PBXGroup;
 			children = (
@@ -169,7 +159,6 @@
 				7D0596CC247FF21E005219F7 /* DAO */,
 				7D0596CB247FF205005219F7 /* Activities */,
 				7D0596CA247FF1F4005219F7 /* Tags */,
-				7D0596C9247FF1DE005219F7 /* CustomScrollView */,
 				7D660107243F79A900488228 /* Entities */,
 				7DB61DBF242D638A00F1D293 /* AppDelegate.swift */,
 				7DB61DC1242D638A00F1D293 /* SceneDelegate.swift */,
@@ -324,7 +313,6 @@
 				7D4D4A8F24EAEFD400B82865 /* SolicitarViewController.swift in Sources */,
 				7D428ED32448682C005C3E61 /* MainViewController.swift in Sources */,
 				7DB61DCA242D638A00F1D293 /* EmpleoUA.xcdatamodeld in Sources */,
-				7D0596C8247FDE87005219F7 /* CustomScrollView.swift in Sources */,
 				7D2F623524DDAC5700A0E4DF /* ListaActividadesViewController.swift in Sources */,
 				7DB61DC0242D638A00F1D293 /* AppDelegate.swift in Sources */,
 				7D660111243F7BED00488228 /* Actividad.swift in Sources */,

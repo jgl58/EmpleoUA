@@ -1,16 +1,16 @@
 PODS:
-  - TinyConstraints (4.0.1)
+  - FSCalendar (2.8.1)
 
 DEPENDENCIES:
-  - TinyConstraints
+  - FSCalendar
 
 SPEC REPOS:
   trunk:
-    - TinyConstraints
+    - FSCalendar
 
 SPEC CHECKSUMS:
-  TinyConstraints: 8dd91295e56797648c7bc335dd20e1d91ec4c192
+  FSCalendar: 5245140456fcbcac5824c203b98bd8068bdfee1a
 
-PODFILE CHECKSUM: a60b566f1a058fd3b197946556ecef8aaf1a7440
+PODFILE CHECKSUM: 8c7e9609d8a382be49db2e704da2377e29494dd6
 
 COCOAPODS: 1.9.1

@@ -6,6 +6,6 @@ target 'EmpleoUA' do
   use_frameworks!
 
   # Pods for EmpleoUA
-  pod "TinyConstraints"
+  pod "FSCalendar"
 
 end

@@ -132,6 +132,7 @@ extension CategoriaViewController: UITableViewDelegate, UITableViewDataSource {
                 break
             case .Solicitar:
                 let nextViewController : SolicitarViewController = storyboard.instantiateViewController(withIdentifier: "Solicitar") as! SolicitarViewController
+                nextViewController.title = "Solicitar cita"
                            self.navigationController?.pushViewController(nextViewController, animated: true)
                 break
             default://webkit
