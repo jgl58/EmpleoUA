@@ -11,14 +11,19 @@ import FSCalendar
 
 class SolicitarViewController: AuthViewController {
 
-    @IBOutlet weak var listaCitas: UITableView!
     @IBOutlet weak var calendar: FSCalendar!
+    @IBOutlet weak var listaCitas: UITableView!
     
     var eventosDias = [String]()
     
     let dateFormatter = DateFormatter()
     
-    let datesForEvents = ["2020-09-03 12:00:00","2020-09-03 18:00:00", "2020-09-06 18:00:00", "2020-09-25 17:00:00", "2020-10-02 12:00:00"]
+    let datesForEvents = ["2020-09-03 12:00:00",
+                          "2020-09-03 18:00:00",
+                          "2020-09-06 18:00:00",
+                          "2020-09-25 17:00:00",
+                          "2020-10-02 12:00:00"]
+    
     var days = [String]()
     var diccionario = [String:[String]]()
     
@@ -31,26 +36,13 @@ class SolicitarViewController: AuthViewController {
         listaCitas.delegate = self
         listaCitas.dataSource = self
         
-        print(datesForEvents.count)
-        
-        loadDays()
-        
-        // Do any additional setup after loading the view.
-        
-        loadEvents()
-        
-    }
-    func loadDays(){
-        let dayFormaterGet = DateFormatter()
-            dayFormaterGet.dateFormat = "yyyy-MM-dd HH:mm:ss"
-        
-        let dayFormater = DateFormatter()
-        dayFormater.dateFormat = "yyyy-MM-dd"
-        
+        listaCitas.separatorStyle = .none
+     
         days = datesForEvents.map({ (event) -> String in
-            return dayFormater.string(from: dayFormaterGet.date(from: event)!)
+            return getDay(event)!
         })
-
+             
+        loadEvents()
         
     }
     
@@ -106,13 +98,10 @@ class SolicitarViewController: AuthViewController {
 extension SolicitarViewController: FSCalendarDelegate, FSCalendarDataSource, FSCalendarDelegateAppearance {
   
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
-        print("Selected \(date)") //2020-01-15 23:00:00 +0000
-       
-        let dayFormater = DateFormatter()
-        dayFormater.dateFormat = "yyyy-MM-dd"
+    
+        dateFormatter.dateFormat = "yyyy-MM-dd"
          
-        print(dayFormater.string(from: date))
-        if let ev = diccionario[dayFormater.string(from: date)] {
+        if let ev = diccionario[dateFormatter.string(from: date)] {
            eventosDias = ev
             self.listaCitas.separatorStyle = .singleLine
         }else{
@@ -141,6 +130,7 @@ extension SolicitarViewController: FSCalendarDelegate, FSCalendarDataSource, FSC
 }
 
 extension SolicitarViewController: UITableViewDelegate, UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return eventosDias.count
     }
@@ -149,18 +139,15 @@ extension SolicitarViewController: UITableViewDelegate, UITableViewDataSource {
         
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "CalendarCell", for: indexPath)
-        print("Nº de eventos: \(eventosDias.count)")
-        
+      
         if eventosDias.count != 0{
-            dateFormatter.dateFormat = "yyyy-MM-dd"
+
+            cell.textLabel?.text = getDay(eventosDias[indexPath.row])
             
             let form = DateFormatter()
             form.dateFormat = "yyyy-MM-dd HH:mm:ss"
             
-            cell.textLabel?.text = dateFormatter.string(from: form.date(from: eventosDias[indexPath.row])!)
-            
             dateFormatter.dateFormat = "HH:mm"
-            
             
             cell.detailTextLabel?.text = dateFormatter.string(from: form.date(from: eventosDias[indexPath.row])!)
         
