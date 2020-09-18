@@ -79,9 +79,7 @@ class SolicitarViewController: AuthViewController {
         
     func checkEvent(event: String) -> Bool{
         for (e, _) in diccionario {
-
             if e == getDay(event) {
-
                 var arr = diccionario[e]
                 arr?.append(event)
                 diccionario[e] = arr
@@ -96,6 +94,12 @@ class SolicitarViewController: AuthViewController {
 }
 
 extension SolicitarViewController: FSCalendarDelegate, FSCalendarDataSource, FSCalendarDelegateAppearance {
+    
+    func calendar(_ calendar: FSCalendar, boundingRectWillChange bounds: CGRect, animated: Bool) {
+        
+        self.view.layoutIfNeeded()
+        calendar.reloadData()
+    }
   
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
     
@@ -115,6 +119,7 @@ extension SolicitarViewController: FSCalendarDelegate, FSCalendarDataSource, FSC
     func calendar(_ calendar: FSCalendar, numberOfEventsFor date: Date) -> Int {
         
         dateFormatter.dateFormat = "yyyy-MM-dd"
+//        Filtramos por dias para conocer en los que hay eventos
         if days.count != 0 {
             if days.contains(dateFormatter.string(from: date)) {
                 return 1
