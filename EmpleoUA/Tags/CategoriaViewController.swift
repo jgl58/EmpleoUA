@@ -37,11 +37,11 @@ class CategoriaViewController: AuthViewController {
             break
         case 5:
             options = [
-                Opciones(titulo: "¿Tienes una idea emprendedora?",tipo: .Solicitar),
-                Opciones(titulo: "¿Cómo afrontar la busqueda de empleo?",tipo: .Solicitar),
-                Opciones(titulo: "¿Cómo desarrollar mi currciculum?",tipo: .Solicitar),
-                Opciones(titulo: "¿Cómo preparar una entrevista de trabajo?",tipo: .Solicitar),
-                Opciones(titulo: "Tengo discapacidad o necesito apoyo educativo, ¿cómo busco trabajo?",tipo: .Solicitar),
+                Opciones(titulo: "¿Tienes una idea emprendedora?",tipo: .Solicitar, solicitudTipo: "1"),
+                Opciones(titulo: "¿Cómo afrontar la busqueda de empleo?",tipo: .Solicitar, solicitudTipo: "1"),
+                Opciones(titulo: "¿Cómo desarrollar mi currciculum?",tipo: .Solicitar, solicitudTipo: "1"),
+                Opciones(titulo: "¿Cómo preparar una entrevista de trabajo?",tipo: .Solicitar, solicitudTipo: "1"),
+                Opciones(titulo: "Tengo discapacidad o necesito apoyo educativo, ¿cómo busco trabajo?",tipo: .Solicitar, solicitudTipo: "1"),
                 Opciones(titulo: "Programa de actividades de orientación",tipo: .WebKit, url: "https://web.ua.es/es/centro-empleo/orientacion/programa-de-actividades-de-orientacion.html"),
                 Opciones(titulo: "Recursos",tipo: .WebKit, url: "https://web.ua.es/es/centro-empleo/orientacion/recursos.html"),
                 Opciones(titulo: "Otras actividades",tipo: .Actividad,url: "5")
@@ -61,12 +61,12 @@ class CategoriaViewController: AuthViewController {
             
         default:
             options = [
-                Opciones(titulo: "Formación para el emprendedor",tipo: .Solicitar, url: "https://web.ua.es/es/centro-empleo/emprendimiento/formacion-emprendedor/"),
-                Opciones(titulo: "Explorer",tipo: .Solicitar, url: "https://web.ua.es/es/centro-empleo/emprendimiento/explorer/"),
-                Opciones(titulo: "Programa de desarrollo de ideas",tipo: .Solicitar, url: "https://web.ua.es/es/centro-empleo/emprendimiento/programa-desarrollo-de-ideas/"),
-                Opciones(titulo: "Concursos",tipo: .Solicitar, url: "https://web.ua.es/es/centro-empleo/emprendimiento/concursos/"),
-                Opciones(titulo: "Cita de orientación emprendedora",tipo: .Solicitar, url: "https://web.ua.es/es/centro-empleo/emprendimiento/cita-de-orientacion-emprendedora/"),
-                Opciones(titulo: "Espacios de trabajo",tipo: .Solicitar, url: "https://web.ua.es/es/centro-empleo/emprendimiento/espacios-de-trabajo/"),
+                Opciones(titulo: "Formación para el emprendedor",tipo: .WebKit, url: "https://web.ua.es/es/centro-empleo/emprendimiento/formacion-emprendedor/"),
+                Opciones(titulo: "Explorer",tipo: .WebKit, url: "https://web.ua.es/es/centro-empleo/emprendimiento/explorer/"),
+                Opciones(titulo: "Programa de desarrollo de ideas",tipo: .WebKit, url: "https://web.ua.es/es/centro-empleo/emprendimiento/programa-desarrollo-de-ideas/"),
+                Opciones(titulo: "Concursos",tipo: .WebKit, url: "https://web.ua.es/es/centro-empleo/emprendimiento/concursos/"),
+                Opciones(titulo: "Cita de orientación emprendedora",tipo: .WebKit, url: "https://web.ua.es/es/centro-empleo/emprendimiento/cita-de-orientacion-emprendedora/"),
+                Opciones(titulo: "Espacios de trabajo",tipo: .WebKit, url: "https://web.ua.es/es/centro-empleo/emprendimiento/espacios-de-trabajo/"),
                 Opciones(titulo: "Otras actividades",tipo: .Actividad, url: "7")
             ]
             break
@@ -132,6 +132,7 @@ extension CategoriaViewController: UITableViewDelegate, UITableViewDataSource {
                 break
             case .Solicitar:
                 let nextViewController : SolicitarViewController = storyboard.instantiateViewController(withIdentifier: "Solicitar") as! SolicitarViewController
+                nextViewController.tipoSolicitud = actividad.solicitudTipo!
                 nextViewController.title = "Solicitar cita"
                            self.navigationController?.pushViewController(nextViewController, animated: true)
                 break
@@ -177,6 +178,7 @@ class Opciones{
     var titulo : String
     var tipo : TipoOpciones
     var url : String?
+    var solicitudTipo: String?
     
     init(titulo: String, tipo: TipoOpciones) {
         self.tipo = tipo
@@ -188,5 +190,10 @@ class Opciones{
         self.url = url
     }
     
+    init(titulo: String, tipo: TipoOpciones, solicitudTipo: String) {
+        self.tipo = tipo
+        self.titulo = titulo
+        self.solicitudTipo = solicitudTipo
+    }
 }
 

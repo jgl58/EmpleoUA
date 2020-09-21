@@ -14,15 +14,12 @@ class SolicitarViewController: AuthViewController {
     @IBOutlet weak var calendar: FSCalendar!
     @IBOutlet weak var listaCitas: UITableView!
     
+    var tipoSolicitud : String?
     var eventosDias = [String]()
     
     let dateFormatter = DateFormatter()
-    
-    let datesForEvents = ["2020-09-03 12:00:00",
-                          "2020-09-03 18:00:00",
-                          "2020-09-06 18:00:00",
-                          "2020-09-25 17:00:00",
-                          "2020-10-02 12:00:00"]
+
+    var datesForEvents = [String]()
     
     var days = [String]()
     var diccionario = [String:[String]]()
@@ -37,21 +34,35 @@ class SolicitarViewController: AuthViewController {
         listaCitas.dataSource = self
         
         listaCitas.separatorStyle = .none
-     
-        days = datesForEvents.map({ (event) -> String in
-            return getDay(event)!
-        })
-             
-        loadEvents()
         
+        APIRequest.getCitas(url: self.tipoSolicitud!){ data in
+           if let citas = data {
+               let dateFormatterGet = DateFormatter()
+               dateFormatterGet.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+                let dateFormatterPrint = DateFormatter()
+                dateFormatterPrint.dateFormat = "dd-MM-yyyy HH:mm:ss"
+            
+                self.days = citas.map({ (event) -> String in
+                    let date = dateFormatterPrint.string(from: dateFormatterGet.date(from: event.fechaInicio!)!)
+                    self.datesForEvents.append(date)
+                    return self.getDay(date)!
+                })
+                self.loadEvents()
+                OperationQueue.main.addOperation {
+                    self.calendar.reloadData()
+                }
+            
+           }
+       }
+
     }
     
     func getDay(_ event: String) -> String?{
         let dayFormaterGet = DateFormatter()
-           dayFormaterGet.dateFormat = "yyyy-MM-dd HH:mm:ss"
+           dayFormaterGet.dateFormat = "dd-MM-yyyy HH:mm:ss"
        
        let dayFormater = DateFormatter()
-       dayFormater.dateFormat = "yyyy-MM-dd"
+       dayFormater.dateFormat = "dd-MM-yyyy"
         
         if let d = dayFormaterGet.date(from: event) {
           return dayFormater.string(from: d)
@@ -66,7 +77,7 @@ class SolicitarViewController: AuthViewController {
         for event in datesForEvents {
             
             if diccionario.count != 0 {
-                print(event)
+                
                 if !checkEvent(event: event) {
                     diccionario[getDay(event)!] = [event]
                 }
@@ -103,7 +114,7 @@ extension SolicitarViewController: FSCalendarDelegate, FSCalendarDataSource, FSC
   
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
     
-        dateFormatter.dateFormat = "yyyy-MM-dd"
+        dateFormatter.dateFormat = "dd-MM-yyyy"
          
         if let ev = diccionario[dateFormatter.string(from: date)] {
            eventosDias = ev
@@ -118,9 +129,10 @@ extension SolicitarViewController: FSCalendarDelegate, FSCalendarDataSource, FSC
 
     func calendar(_ calendar: FSCalendar, numberOfEventsFor date: Date) -> Int {
         
-        dateFormatter.dateFormat = "yyyy-MM-dd"
+        dateFormatter.dateFormat = "dd-MM-yyyy"
 //        Filtramos por dias para conocer en los que hay eventos
         if days.count != 0 {
+            print(dateFormatter.string(from: date))
             if days.contains(dateFormatter.string(from: date)) {
                 return 1
             } else {
@@ -150,7 +162,7 @@ extension SolicitarViewController: UITableViewDelegate, UITableViewDataSource {
             cell.textLabel?.text = getDay(eventosDias[indexPath.row])
             
             let form = DateFormatter()
-            form.dateFormat = "yyyy-MM-dd HH:mm:ss"
+            form.dateFormat = "dd-MM-yyyy HH:mm:ss"
             
             dateFormatter.dateFormat = "HH:mm"
             
