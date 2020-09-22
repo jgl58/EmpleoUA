@@ -27,7 +27,7 @@ class AuthViewController: UIViewController {
             
             let alert = UIAlertController(title: "¿Desea cerrar sesión?", message: "", preferredStyle: .alert)
 
-            alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { action in
+            alert.addAction(UIAlertAction(title: "Si", style: .default, handler: { action in
                 print("Cerramos sesion")
                 UserDefaults.standard.removeObject(forKey: "Token")
                 self.navigationItem.rightBarButtonItem =

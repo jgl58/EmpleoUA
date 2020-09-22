@@ -23,6 +23,8 @@
 		7D96B40F24E5A7DE00A75562 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D96B40E24E5A7DE00A75562 /* AuthViewController.swift */; };
 		7DB0624A24C9A6DB0005F1AE /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB0624924C9A6DB0005F1AE /* LoginController.swift */; };
 		7DB421B72519002C00A2FFBD /* Cita.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB421B62519002C00A2FFBD /* Cita.swift */; };
+		7DB421BA2519386300A2FFBD /* MisActividadesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB421B92519386300A2FFBD /* MisActividadesController.swift */; };
+		7DB421BD251938FB00A2FFBD /* MisCitasController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB421BC251938FB00A2FFBD /* MisCitasController.swift */; };
 		7DB61DC0242D638A00F1D293 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB61DBF242D638A00F1D293 /* AppDelegate.swift */; };
 		7DB61DC2242D638A00F1D293 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB61DC1242D638A00F1D293 /* SceneDelegate.swift */; };
 		7DB61DC7242D638A00F1D293 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7DB61DC5242D638A00F1D293 /* Main.storyboard */; };
@@ -53,6 +55,8 @@
 		7D96B40E24E5A7DE00A75562 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		7DB0624924C9A6DB0005F1AE /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		7DB421B62519002C00A2FFBD /* Cita.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cita.swift; sourceTree = "<group>"; };
+		7DB421B92519386300A2FFBD /* MisActividadesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MisActividadesController.swift; sourceTree = "<group>"; };
+		7DB421BC251938FB00A2FFBD /* MisCitasController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MisCitasController.swift; sourceTree = "<group>"; };
 		7DB61DBC242D638A00F1D293 /* EmpleoUA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EmpleoUA.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7DB61DBF242D638A00F1D293 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7DB61DC1242D638A00F1D293 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -136,6 +140,22 @@
 			path = WebView;
 			sourceTree = "<group>";
 		};
+		7DB421B82519382D00A2FFBD /* MisActividades */ = {
+			isa = PBXGroup;
+			children = (
+				7DB421B92519386300A2FFBD /* MisActividadesController.swift */,
+			);
+			path = MisActividades;
+			sourceTree = "<group>";
+		};
+		7DB421BB251938E600A2FFBD /* MisCitas */ = {
+			isa = PBXGroup;
+			children = (
+				7DB421BC251938FB00A2FFBD /* MisCitasController.swift */,
+			);
+			path = MisCitas;
+			sourceTree = "<group>";
+		};
 		7DB61DB3242D638A00F1D293 = {
 			isa = PBXGroup;
 			children = (
@@ -157,6 +177,8 @@
 		7DB61DBE242D638A00F1D293 /* EmpleoUA */ = {
 			isa = PBXGroup;
 			children = (
+				7DB421BB251938E600A2FFBD /* MisCitas */,
+				7DB421B82519382D00A2FFBD /* MisActividades */,
 				7D4D4A8D24EAEFA300B82865 /* Solicitar */,
 				7DB2A4C224ADDAC2001F0495 /* WebView */,
 				7D0596CC247FF21E005219F7 /* DAO */,
@@ -311,6 +333,7 @@
 				7D66010F243F7B6B00488228 /* Matricula.swift in Sources */,
 				7D66010D243F7AD500488228 /* Tag.swift in Sources */,
 				7D5ED37424D9CB510052FB70 /* Networking.swift in Sources */,
+				7DB421BD251938FB00A2FFBD /* MisCitasController.swift in Sources */,
 				7DBED403248562B100825FAA /* ActividadItem.swift in Sources */,
 				7D5ED37624D9CBD40052FB70 /* ImageViewExtension.swift in Sources */,
 				7D4D4A8F24EAEFD400B82865 /* SolicitarViewController.swift in Sources */,
@@ -321,6 +344,7 @@
 				7DB61DC0242D638A00F1D293 /* AppDelegate.swift in Sources */,
 				7D660111243F7BED00488228 /* Actividad.swift in Sources */,
 				7D660106243F27AD00488228 /* APIRequest.swift in Sources */,
+				7DB421BA2519386300A2FFBD /* MisActividadesController.swift in Sources */,
 				7D96B40F24E5A7DE00A75562 /* AuthViewController.swift in Sources */,
 				7D660109243F79C900488228 /* Curso.swift in Sources */,
 				7DB61DC2242D638A00F1D293 /* SceneDelegate.swift in Sources */,

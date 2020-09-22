@@ -23,6 +23,7 @@ class ListaActividadesViewController: AuthViewController {
        
         self.tableView.delegate = self
         self.tableView.dataSource = self
+        self.tableView.separatorStyle = .singleLine
   
        APIRequest.getActividadesByTag(tag: tagID!){ data in
             if let act = data {

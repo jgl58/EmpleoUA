@@ -10,6 +10,8 @@ import UIKit
 
 class ActividadViewController: AuthViewController {
 
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    
     var actividad : Actividad?
     
     @IBOutlet weak var titulo: UILabel!
@@ -75,7 +77,11 @@ class ActividadViewController: AuthViewController {
             print(authToken)
             let alert = UIAlertController(title: "Te has inscrito a la oferta", message: "", preferredStyle: .alert)
 
-            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { action in
+                
+                self.appDelegate.misActividades.append(self.actividad!)
+                
+            }))
 
             self.present(alert, animated: true)
         }else{
@@ -93,8 +99,8 @@ class ActividadViewController: AuthViewController {
     @IBAction func inscribirse(_ sender: Any) {
         
         let defaults = UserDefaults.standard
-        if let authToken = defaults.string(forKey: "Token"){
-            print(authToken)
+        if let _ = defaults.string(forKey: "Token"){
+   
             let alert = UIAlertController(title: "Te has inscrito a la oferta", message: "", preferredStyle: .alert)
 
             alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))

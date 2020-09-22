@@ -14,6 +14,8 @@ class SolicitarViewController: AuthViewController {
     @IBOutlet weak var calendar: FSCalendar!
     @IBOutlet weak var listaCitas: UITableView!
     
+    var appDelegate : AppDelegate!
+    
     var tipoSolicitud : String?
     var eventosDias = [String]()
     
@@ -34,6 +36,8 @@ class SolicitarViewController: AuthViewController {
         listaCitas.dataSource = self
         
         listaCitas.separatorStyle = .none
+        
+        appDelegate = UIApplication.shared.delegate as! AppDelegate
         
         APIRequest.getCitas(url: self.tipoSolicitud!){ data in
            if let citas = data {
@@ -183,7 +187,11 @@ extension SolicitarViewController: UITableViewDelegate, UITableViewDataSource {
            print(authToken)
            let alert = UIAlertController(title: "Has reservado la cita", message: "", preferredStyle: .alert)
 
-           alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+           alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { action in
+            
+            let id = self.listaCitas.indexPathForSelectedRow?.row
+            self.appDelegate.misCitas.append(self.eventosDias[id!])
+           }))
 
            self.present(alert, animated: true)
        }else{
