@@ -38,10 +38,10 @@ class CategoriaViewController: AuthViewController {
         case 5:
             options = [
                 Opciones(titulo: "¿Tienes una idea emprendedora?",tipo: .Solicitar, solicitudTipo: "1"),
-                Opciones(titulo: "¿Cómo afrontar la busqueda de empleo?",tipo: .Solicitar, solicitudTipo: "1"),
-                Opciones(titulo: "¿Cómo desarrollar mi currciculum?",tipo: .Solicitar, solicitudTipo: "1"),
-                Opciones(titulo: "¿Cómo preparar una entrevista de trabajo?",tipo: .Solicitar, solicitudTipo: "1"),
-                Opciones(titulo: "Tengo discapacidad o necesito apoyo educativo, ¿cómo busco trabajo?",tipo: .Solicitar, solicitudTipo: "1"),
+                Opciones(titulo: "¿Cómo afrontar la busqueda de empleo?",tipo: .Solicitar, solicitudTipo: "2"),
+                Opciones(titulo: "¿Cómo desarrollar mi currciculum?",tipo: .Solicitar, solicitudTipo: "3"),
+                Opciones(titulo: "¿Cómo preparar una entrevista de trabajo?",tipo: .Solicitar, solicitudTipo: "4"),
+                Opciones(titulo: "Tengo discapacidad o necesito apoyo educativo, ¿cómo busco trabajo?",tipo: .Solicitar, solicitudTipo: "5"),
                 Opciones(titulo: "Programa de actividades de orientación",tipo: .WebKit, url: "https://web.ua.es/es/centro-empleo/orientacion/programa-de-actividades-de-orientacion.html"),
                 Opciones(titulo: "Recursos",tipo: .WebKit, url: "https://web.ua.es/es/centro-empleo/orientacion/recursos.html"),
                 Opciones(titulo: "Otras actividades",tipo: .Actividad,url: "5")

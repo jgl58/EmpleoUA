@@ -68,7 +68,7 @@ extension MainViewController: UITableViewDelegate,UITableViewDataSource{
         return categories.count
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 200.0
+        return 110.0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
