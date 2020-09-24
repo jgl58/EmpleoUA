@@ -81,7 +81,7 @@ class ActividadViewController: AuthViewController {
             alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { action in
                 
                 self.appDelegate.misActividades.append(self.actividad!)
-                self.setNotificacionActividad(actividad: self.actividad!)
+                Notificaciones.setNotificacionActividad(actividad: self.actividad!)
                 
             }))
 
@@ -114,60 +114,5 @@ class ActividadViewController: AuthViewController {
           return nil
       }
       
-    func setNotificacionActividad(actividad: Actividad){
-        
-        
-        
-        
-        let center = UNUserNotificationCenter.current()
-        
-        let content = UNMutableNotificationContent()
-                   content.title = "Recordatorio de actividad"
-                   content.subtitle = actividad.nombre!
-                   content.body = actividad.lugar!
-                   content.sound = UNNotificationSound.default
-        
-            
-        let dateFormatterInput = DateFormatter()
-            dateFormatterInput.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
-        //        var date = dateFormatterInput.date(from: actividad.fechaInicio!)
-        
-//        let date = Date().addingTimeInterval(5)
-        let date = dateFormatterInput.date(from: "2020-09-24T11:22:00Z")
-    
-        var calendar = Calendar.current
-        calendar.timeZone = TimeZone(abbreviation: "GMT+2")!
-//        var notificacionDate = calendar.date(byAdding: .minute, value: -30, to: date!)!
-        var notificacionDate = calendar.date(byAdding: .minute, value: -5, to: date!)!
-        notificacionDate = calendar.date(byAdding: .hour, value: -2, to: notificacionDate)!
-        
-        let dateComponents = calendar.dateComponents([.year, .month, .day, .hour, .minute, .second], from: notificacionDate)
-        
-        //            let date = dateFormatterInput.date(from: "2020-09-24T10:52:00Z")
-//
-//                let calendar = Calendar.current
-//                let notificacionDate = calendar.date(byAdding: .minute, value: -5, to: date!)
-//
-//
-//            var fecha = DateComponents()
-//            fecha.hour = calendar.component(.hour, from: notificacionDate!)
-//            fecha.minute = calendar.component(.minute, from: notificacionDate!)
-//            fecha.day = calendar.component(.day, from: notificacionDate!)
-//            fecha.month = calendar.component(.month, from: notificacionDate!)
-//            fecha.year = calendar.component(.year, from: notificacionDate!)
-            
-            let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: false)
-            
-            let uuid = UUID().uuidString
-        
-            let request = UNNotificationRequest(identifier: uuid, content: content, trigger: trigger)
-            
-            center.add(request) {(error) in
-               if let error = error {
-                  print("Se ha producido un error: \(error)")
-               }
-            }
-
-        }
 }
 

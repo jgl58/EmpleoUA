@@ -191,6 +191,7 @@ extension SolicitarViewController: UITableViewDelegate, UITableViewDataSource {
             
             let id = self.listaCitas.indexPathForSelectedRow?.row
             self.appDelegate.misCitas.append(self.eventosDias[id!])
+            Notificaciones.setNotificacionCita(cita: self.eventosDias[id!])
            }))
 
            self.present(alert, animated: true)
