@@ -20,6 +20,7 @@
 		7D66010D243F7AD500488228 /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D66010C243F7AD500488228 /* Tag.swift */; };
 		7D66010F243F7B6B00488228 /* Matricula.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D66010E243F7B6B00488228 /* Matricula.swift */; };
 		7D660111243F7BED00488228 /* Actividad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D660110243F7BED00488228 /* Actividad.swift */; };
+		7D825A92251B511B00293315 /* Notificaciones.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D825A91251B511B00293315 /* Notificaciones.swift */; };
 		7D96B40F24E5A7DE00A75562 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D96B40E24E5A7DE00A75562 /* AuthViewController.swift */; };
 		7DB0624A24C9A6DB0005F1AE /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB0624924C9A6DB0005F1AE /* LoginController.swift */; };
 		7DB421B72519002C00A2FFBD /* Cita.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB421B62519002C00A2FFBD /* Cita.swift */; };
@@ -52,6 +53,7 @@
 		7D66010C243F7AD500488228 /* Tag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
 		7D66010E243F7B6B00488228 /* Matricula.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Matricula.swift; sourceTree = "<group>"; };
 		7D660110243F7BED00488228 /* Actividad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Actividad.swift; sourceTree = "<group>"; };
+		7D825A91251B511B00293315 /* Notificaciones.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notificaciones.swift; sourceTree = "<group>"; };
 		7D96B40E24E5A7DE00A75562 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		7DB0624924C9A6DB0005F1AE /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		7DB421B62519002C00A2FFBD /* Cita.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cita.swift; sourceTree = "<group>"; };
@@ -106,6 +108,7 @@
 			children = (
 				7D660105243F27AD00488228 /* APIRequest.swift */,
 				7D5ED37324D9CB510052FB70 /* Networking.swift */,
+				7D825A91251B511B00293315 /* Notificaciones.swift */,
 			);
 			path = DAO;
 			sourceTree = "<group>";
@@ -343,6 +346,7 @@
 				7D2F623524DDAC5700A0E4DF /* ListaActividadesViewController.swift in Sources */,
 				7DB61DC0242D638A00F1D293 /* AppDelegate.swift in Sources */,
 				7D660111243F7BED00488228 /* Actividad.swift in Sources */,
+				7D825A92251B511B00293315 /* Notificaciones.swift in Sources */,
 				7D660106243F27AD00488228 /* APIRequest.swift in Sources */,
 				7DB421BA2519386300A2FFBD /* MisActividadesController.swift in Sources */,
 				7D96B40F24E5A7DE00A75562 /* AuthViewController.swift in Sources */,
