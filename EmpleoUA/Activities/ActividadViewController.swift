@@ -43,8 +43,6 @@ class ActividadViewController: AuthViewController {
          setImage(from: url, imageView: imagen)
         }
         
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Inscribirse", style: .done, target: self, action:
-            #selector(inscribir))
        
         // Do any additional setup after loading the view.
     }
@@ -71,8 +69,8 @@ class ActividadViewController: AuthViewController {
         newViewController.url = "https://appempleo.ua.es/actividad/ver/\(actividad?.urlAmigable ?? "")"
          navigationController!.pushViewController(newViewController, animated: true)
     }
-    
-    @objc func inscribir(){
+    @IBAction func inscribirse(_ sender: Any) {
+        
         let defaults = UserDefaults.standard
         if let authToken = defaults.string(forKey: "Token"){
             print(authToken)
@@ -97,6 +95,7 @@ class ActividadViewController: AuthViewController {
             self.present(alert, animated: true)
         }
     }
+    
    
     
     func formatData(fecha: String) -> String?{

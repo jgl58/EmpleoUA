@@ -13,7 +13,7 @@ class Notificaciones {
     static var dateFormatterInput = DateFormatter()
     static var dateFormatterOutput = DateFormatter()
     
-    static let retrasoMinutos = -5
+    static let retrasoMinutos = -30
     static let retrasoHoras = -2
     
     
@@ -30,8 +30,8 @@ class Notificaciones {
             
         let dateFormatterInput = DateFormatter()
             dateFormatterInput.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
-        //        var date = dateFormatterInput.date(from: actividad.fechaInicio!)
-
+//            var date = dateFormatterInput.date(from: actividad.fechaInicio!)
+       
         let date = dateFormatterInput.date(from: "2020-09-24T11:22:00Z")
 
         var calendar = Calendar.current
@@ -66,7 +66,7 @@ class Notificaciones {
             dateFormatterInput.dateFormat = "dd-MM-yyyy HH:mm:ss"
         //        var date = dateFormatterInput.date(from: actividad.fechaInicio!)
 
-        let date = dateFormatterInput.date(from: "24-09-2020 11:44:00")
+        let date = dateFormatterInput.date(from: "25-09-2020 13:17:00")
         
         let calendar = Calendar.current
     //        var notificacionDate = calendar.date(byAdding: .minute, value: -30, to: date!)!
