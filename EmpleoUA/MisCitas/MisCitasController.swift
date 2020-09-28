@@ -16,6 +16,10 @@ class MisCitasController: AuthViewController,UITableViewDelegate, UITableViewDat
     override func viewDidLoad() {
         super.viewDidLoad()
         appDelegate = UIApplication.shared.delegate as! AppDelegate
+        
+        
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
 
         self.title = "Mis Citas"
        
@@ -23,6 +27,8 @@ class MisCitasController: AuthViewController,UITableViewDelegate, UITableViewDat
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        print(appDelegate.misCitas.count)
         self.tableView.reloadData()
     }
 
@@ -47,6 +53,7 @@ class MisCitasController: AuthViewController,UITableViewDelegate, UITableViewDat
          
          let cita = appDelegate.misCitas[indexPath.row]
          
+        print(cita)
          
         cell.dia?.text = getDay(cita)
         

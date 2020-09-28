@@ -25,7 +25,6 @@ class MisActividadesController: AuthViewController, UITableViewDelegate, UITable
         
         super.viewWillAppear(animated)
         self.tableView.reloadData()
-        print(appDelegate.misActividades.count)
     }
 
     // MARK: - Table view data source
