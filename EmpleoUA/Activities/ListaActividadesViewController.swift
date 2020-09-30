@@ -56,7 +56,7 @@ class ListaActividadesViewController: AuthViewController {
         dateFormatterGet.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
 
         let dateFormatterPrint = DateFormatter()
-        dateFormatterPrint.dateFormat = "dd/MM/yyyy - HH:mm"
+        dateFormatterPrint.dateFormat = "dd/MM/yyyy 'a las' HH:mm"
         
 
         if let date = dateFormatterGet.date(from: fecha) {
@@ -89,7 +89,7 @@ extension ListaActividadesViewController: UITableViewDelegate, UITableViewDataSo
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! ActividadItem
         let actividad = activities[indexPath.row]
         cell.titulo.text = actividad.nombre
-        if let date = actividad.fechaFin{
+        if let date = actividad.fechaInicio{
             if let f = formatData(fecha: date){
                 cell.fecha.text = f
             }else{

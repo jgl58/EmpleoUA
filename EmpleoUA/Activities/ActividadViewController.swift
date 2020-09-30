@@ -26,17 +26,17 @@ class ActividadViewController: AuthViewController {
         
         titulo.text = actividad?.nombre
         
-        if let _ = actividad?.fechaFin {
-           fecha.text = formatData(fecha: actividad!.fechaFin!)
+        if let _ = actividad?.fechaInicio {
+           fecha.text = formatData(fecha: actividad!.fechaInicio!)
         }else{
             fecha.text = ""
         }
         
         lugar.text = actividad?.lugar
         if let _ = actividad?.capacidad {
-           capacidad.text = "Capacidad: \(actividad!.capacidad!) personas"
+           capacidad.text = "Aforo: \(actividad!.capacidad!) personas"
         }else{
-            capacidad.text = ""
+            capacidad.text = "Aforo: Ilimitado"
         }
         
         if let url =  actividad?.urlFoto{
@@ -103,7 +103,7 @@ class ActividadViewController: AuthViewController {
           dateFormatterGet.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
 
           let dateFormatterPrint = DateFormatter()
-          dateFormatterPrint.dateFormat = "dd/MM/yyyy - HH:mm"
+          dateFormatterPrint.dateFormat = "dd/MM/yyyy 'a las' HH:mm"
 
           if let date = dateFormatterGet.date(from: fecha) {
               return (dateFormatterPrint.string(from: date))
