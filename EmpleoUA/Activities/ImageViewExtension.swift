@@ -10,11 +10,8 @@ import UIKit
 
 let imageCache = NSCache<AnyObject, AnyObject>()
 
-// MARK: - UIImageView extension
 extension UIImageView {
     
-    /// This loadThumbnail function is used to download thumbnail image using urlString
-    /// This method also using cache of loaded thumbnail using urlString as a key of cached thumbnail.
     func loadThumbnail(urlString: String) {
         guard let url = URL(string: urlString) else { return }
         image = nil
@@ -23,7 +20,7 @@ extension UIImageView {
             image = imageFromCache as? UIImage
             return
         }
-        Networking.downloadImage(url: url) { [weak self] result in
+        APIRequest.downloadImage(url: url) { [weak self] result in
             guard let self = self else { return }
             switch result {
             case .success(let data):

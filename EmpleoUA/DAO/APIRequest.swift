@@ -8,6 +8,13 @@
 
 import Foundation
 
+public enum Result<T> {
+    case success(T)
+    case failure(Error)
+}
+
+
+
 class APIRequest {
     
     static let base_url = "https://appempleo.ua.es"
@@ -57,53 +64,6 @@ class APIRequest {
         
     }
     
-    
-    
-//    static func getTag(url: String,callback: @escaping (Tag?)->Void){
-//            let session = URLSession.shared
-//            let url = URL(string: self.base_url+url)!
-//            let task = session.dataTask(with: url, completionHandler: { data, response, error in
-//                // Check if an error occured
-//                if error != nil {
-//                    // HERE you can manage the error
-//                    print(error as Any)
-//                    callback(nil)
-//                }
-//                do {
-//                    let json = try JSONDecoder().decode(Tag.self, from: data!)
-//    //                let json = try? JSONSerialization.jsonObject(with: data!, options: [])
-//                    callback(json)
-//               } catch {
-//                   print("Error during JSON serialization: \(error.localizedDescription)")
-//               }
-//            })
-//            task.resume()
-//
-//        }
-    
-//    static func getActividad(class: Any, url: String,callback: @escaping (Actividad?)->Void){
-//        let session = URLSession.shared
-//        let url = URL(string: self.base_url+url)!
-//        let task = session.dataTask(with: url, completionHandler: { data, response, error in
-//            // Check if an error occured
-//            if error != nil {
-//                // HERE you can manage the error
-//                print(error as Any)
-//                callback(nil)
-//            }
-//            do {
-//               let json = try JSONDecoder().decode(Actividad.self, from: data!)
-//                callback(json)
-//           } catch {
-//               print("Error during JSON serialization: \(error.localizedDescription)")
-//           }
-//
-//        })
-//        task.resume()
-//
-//    }
-//apiActividades/obtener?sort=fechaInicio&order=asc&curso=1&tipoTag=1
-    
     static func getActividadesByTag(tag: Int,callback: @escaping ([Actividad]?)->Void){
         let session = URLSession.shared
         let url = URL(string: self.base_url+self.activities_url+self.activities_filter+String(tag))!
@@ -124,6 +84,32 @@ class APIRequest {
         })
         task.resume()
         
+    }
+    
+//    PARTE PARA DESCARGAR IMAGENES
+    
+    private static func getData(url: URL,
+                                completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
+        URLSession.shared.dataTask(with: url, completionHandler: completion).resume()
+    }
+    
+    public static func downloadImage(url: URL,
+                                     completion: @escaping (Result<Data>) -> Void) {
+        APIRequest.getData(url: url) { data, response, error in
+            
+            if let error = error {
+                completion(.failure(error))
+                return
+            }
+            
+            guard let data = data, error == nil else {
+                return
+            }
+            
+            DispatchQueue.main.async() {
+                completion(.success(data))
+            }
+        }
     }
     
 }

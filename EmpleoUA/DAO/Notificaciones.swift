@@ -31,12 +31,13 @@ class Notificaciones {
         let dateFormatterInput = DateFormatter()
             dateFormatterInput.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
 //            var date = dateFormatterInput.date(from: actividad.fechaInicio!)
-       
+        print(actividad.fechaInicio!)
         let date = dateFormatterInput.date(from: "2020-09-24T11:22:00Z")
 
         var calendar = Calendar.current
         calendar.timeZone = TimeZone(abbreviation: "GMT+2")!
     //        var notificacionDate = calendar.date(byAdding: .minute, value: -30, to: date!)!
+        
         var notificacionDate = calendar.date(byAdding: .minute, value: self.retrasoMinutos, to: date!)!
         notificacionDate = calendar.date(byAdding: .hour, value: self.retrasoHoras, to: notificacionDate)!
         
