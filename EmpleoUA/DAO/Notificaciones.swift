@@ -29,18 +29,17 @@ class Notificaciones {
         
             
         let dateFormatterInput = DateFormatter()
-            dateFormatterInput.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
-//            var date = dateFormatterInput.date(from: actividad.fechaInicio!)
-        print(actividad.fechaInicio!)
-        let date = dateFormatterInput.date(from: "2020-09-24T11:22:00Z")
+        dateFormatterInput.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+        var date = dateFormatterInput.date(from: actividad.fechaInicio!)
+        
+//        let date = dateFormatterInput.date(from: "2020-09-24T11:22:00Z")
 
         var calendar = Calendar.current
         calendar.timeZone = TimeZone(abbreviation: "GMT+2")!
-    //        var notificacionDate = calendar.date(byAdding: .minute, value: -30, to: date!)!
-        
+    
         var notificacionDate = calendar.date(byAdding: .minute, value: self.retrasoMinutos, to: date!)!
         notificacionDate = calendar.date(byAdding: .hour, value: self.retrasoHoras, to: notificacionDate)!
-        
+        print(notificacionDate)
         let dateComponents = calendar.dateComponents([.year, .month, .day, .hour, .minute, .second], from: notificacionDate)
 
         let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: false)
@@ -65,23 +64,24 @@ class Notificaciones {
 
         let dateFormatterInput = DateFormatter()
             dateFormatterInput.dateFormat = "dd-MM-yyyy HH:mm:ss"
-        //        var date = dateFormatterInput.date(from: actividad.fechaInicio!)
+        var date = dateFormatterInput.date(from: cita)
 
-        let date = dateFormatterInput.date(from: "25-09-2020 13:17:00")
+//        let date = dateFormatterInput.date(from: "25-09-2020 13:17:00")
         
         let calendar = Calendar.current
-    //        var notificacionDate = calendar.date(byAdding: .minute, value: -30, to: date!)!
         var notificacionDate = calendar.date(byAdding: .minute, value: self.retrasoMinutos, to: date!)!
         
+        notificacionDate = calendar.date(byAdding: .hour, value: 2, to: notificacionDate)!
         let dateComponents = calendar.dateComponents([.year, .month, .day, .hour, .minute, .second], from: notificacionDate)
-        print(dateComponents)
+        print(notificacionDate)
         
         let content = UNMutableNotificationContent()
         content.title = "Recordatorio de cita"
-        content.subtitle = "Hoy a las \(calendar.component(.hour, from: date!)):\(calendar.component(.second, from: date!))"
+        content.subtitle = "Hoy a las \(calendar.component(.hour, from: date!)):\(calendar.component(.minute, from: date!))"
         content.sound = UNNotificationSound.default
 
-        let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: false)
+//        let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: false)
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1.0, repeats: false)
         
         let uuid = UUID().uuidString
 

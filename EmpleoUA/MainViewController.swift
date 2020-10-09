@@ -28,7 +28,8 @@ class MainViewController: AuthViewController{
 
             if let tags = data {
                 for t in tags {
-                   if t.name != "Zona empresas" && t.name != "Centro de Empleo"{
+// ID 1 = Centro de empleo   ID 3 = Zona de empresas
+                   if t.id != 1 && t.id != 3{
                         self.categories.append(t)
                     }
                 }
@@ -68,7 +69,7 @@ extension MainViewController: UITableViewDelegate,UITableViewDataSource{
         return categories.count
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 110.0
+        return 150.0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -77,7 +78,7 @@ extension MainViewController: UITableViewDelegate,UITableViewDataSource{
         cell.containerView.backgroundColor = colorOrder[indexPath.row]
         cell.titulo.text = categories[indexPath.row].name
         cell.containerView.layer.cornerRadius = 5
-
+        
         return cell
     }
     
